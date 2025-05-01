@@ -1,0 +1,230 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 254);
+}
+/* Header Styling */
+.top-bar {
+    background: #6f1daa;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 14px;
+}
+.header {
+    background: #6f1daa;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.header .logo i {
+    margin-right: 8px;
+}
+.search-box {
+    flex: 1;
+    margin: 0 20px;
+    position: relative;
+}
+.search-box input {
+    width: 800px;
+    height: 20px;
+    padding: 8px 20px 8px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.search-box button {
+    position: absolute;
+    right: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #6f1daa;
+    color: white;
+    border: none;
+    border-radius: 15%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.nav-links {
+    display: flex;
+    height:40px;
+    background-color: #6f1daa;
+    gap: 100px;
+    padding-top: 10px;
+    padding-left: 60px;
+}
+.login-links {
+    display: flex;
+    gap: 30px;
+    color: aliceblue;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color:aliceblue;  
+    font-size: 17px;
+    margin: 5px;
+    padding: 4px;
+    transition: color 0.5s ease-in-out; 
+}
+
+/* Change color when hovered */
+.nav-links a:hover {
+    color: rgb(15, 200, 74); /* Change to any color you want */
+}
+
+.maquee_image{
+    height: 600px;
+    width: 100%;
+}
+/* Footer Styling */
+.footer {
+    background: #6f1daa;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer div {
+    margin: 10px;
+}
+.newsletter input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+.newsletter button {
+    background: green;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/*marquee*/
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #46c185;
+    padding: 10px 0;
+}
+.marquee p {
+    display: inline-block;
+    animation: scroll-text 60s linear infinite;
+    font-size: 20px;
+    color:white;
+}
+.marquee span {
+    margin-right: 70px;  /* Adjust spacing between sentences */
+    display: inline-block;
+}
+@keyframes scroll-text {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+/*shop by categary*/
+
+.shop-by-categary{
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 40px;
+
+}
+  
+.categary-items {
+    display: flex; /* Align items in one line */
+    gap: 20px; /* Add space between images */
+    overflow-x: scroll; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Prevent wrapping */
+    padding-left:100px;
+    
+}
+
+.categary-pic {
+    width: 200px; /* Adjust size as needed */
+    height: auto; 
+    border-radius: 20px;
+    scroll-snap-align: start;
+}
+
+.frame{
+    width:200px;
+    height:270px;
+    margin-bottom: 120px;
+}
+
+/* Shop By Category Button */
+.shop-category {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.shop-btn {
+    background-color: #FFD700;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor:move;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.shop-category:hover .dropdown-content {
+    display: block;
+}
+
+.shopbtn{
+    background-color: rgb(255, 255, 254);
+    border: 0cm;
+    cursor: pointer;
+    height: 300px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 2s;
+}
+
+.shopbtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}

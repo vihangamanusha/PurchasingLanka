@@ -1,0 +1,46 @@
+.login-frame{
+    height:500px;
+    width:430px;
+    background-color:rgb(255, 255, 255);
+    border-radius: 20px;
+    margin: 40px auto;
+    font-size: 16px;
+    
+    
+}
+
+/* Style the input fields */
+input[type="text"],
+input[type="password"] {
+    width: 350px;  /* Change this value to adjust width */
+    height: 25px;  /* Change this value to adjust height */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+
+/* Style the button */
+button {
+    width: 375px;
+    height: 40px;
+    background-color: #6f1daa;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Change button color on hover */
+button:hover {
+    background-color: #551583;
+}
+
+tr {
+    margin-bottom: 15px; /* Adjust the space between rows */
+    display: block; /* Needed to apply margin */
+    margin-left: 20px;
+}
+
