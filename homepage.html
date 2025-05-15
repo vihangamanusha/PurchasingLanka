@@ -4,16 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PurchasingLanka.lk</title>
+    
+    <!-- Ad Modal CSS -->
+    <style>
+        .ad-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .ad-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+        .ad-content h2 {
+            margin-bottom: 10px;
+        }
+        .ad-content button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ad-content button:hover {
+            background: #218838;
+        }
+    </style>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
     <link rel="stylesheet" href="new.css">
-    
 </head>
+
 <body>
-    <div class="top-bar">
-        Get Upto 25% Cashback On First Order: GET25OFF - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+
+    <!-- 🔔 Advertisement Modal -->
+    <div class="ad-modal" id="adModal">
+        <div class="ad-content">
+            <h2>🎉 Limited Time Offer!</h2>
+            <p>Get 20% off your first purchase.</p>
+            <button onclick="closeAd()">Continue</button>
+        </div>
     </div>
+
+    <div class="top-bar">
+        Get Upto 25% Cashback On First Order: GET25OFF - 
+        <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+
     <header class="header">
         <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
         <div class="search-box">
@@ -22,20 +71,19 @@
         </div>
         <div class="login-links">
             <a href="#">Cart</a>
-            <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/login.html?username=&password=#" style="color:white">Login |</a>
-            <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/signup.html">Sign Up</a>
-           
+            <a href="login.html" style="color:white">Login</a>
+            <a href="signup.html" style="color: white;">Sign Up</a>
         </div>
     </header>
-    
+
     <div class="nav-links">
         <div class="shop-category">
             <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
             <div class="dropdown-content">
-                <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/vegetable.html">Vegetables</a>
-                <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/fruits.html">Fruits</a>
+                <a href="vegetable.html">Vegetables</a>
+                <a href="fruits.html">Fruits</a>
                 <a href="#">Dairy</a>
-                <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/beverages.html">Beverages</a>
+                <a href="beverages.html">Beverages</a>
                 <a href="#">Meats</a>
                 <a href="#">Sea Food</a>
                 <a href="#">Bakery</a>
@@ -51,52 +99,57 @@
         <a href="#">Contact</a>
         <a href="#">Blog</a>
     </div>
+
+   <!--<img src="images/homepages images/2_.png" class="maquee_image">-->
+    <div class="image-gallery">
+ 
+        <div class="gallery-grid">
+           <img src="images/homepages images/2_.png" alt="Product 1">
+           <img src="images/homepages images/1.png" alt="Product 2">
+           <img src="images/homepages images/3.jpg" alt="Product 2">
+           <img src="images/homepages images/4.png" alt="Product 2">
     
-    <img src="1.png" class="maquee_image">
-    
-   
+    </div>
+</div>
+
     <div class="shop-by-categary">
         <p style="font-size: 28px;">Shop By Categaries</p>
         <div class="categary-items">
-            <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/vegetable.html"><button class="shopbtn" ><div class="frame">
-                <img src="Tomato.png" class="categary-pic">
+            <a href="vegetable.html"><button class="shopbtn"><div class="frame">
+                <img src="images/homepages images/Tomato.png" class="categary-pic">
                 <p style="font-size: 20px;">Vegees</p>
             </div></button></a>
-            <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/fruits.html"><button class="shopbtn"><div class="frame">
-                <img src="dragon.jpg" class="categary-pic">
+            <a href="fruits.html"><button class="shopbtn"><div class="frame">
+                <img src="images/homepages images/dragon.jpg" class="categary-pic">
                 <p style="font-size: 20px;">Fruits</p>
             </div></button></a>
             <button class="shopbtn"><div class="frame">
-                <img src="sancks.jpeg" class="categary-pic">
+                <img src="images/homepages images/sancks.jpeg" class="categary-pic">
                 <p style="font-size: 20px;">Snacks</p>
             </div></button>
-            <a href="file:///C:/Users/vihan/OneDrive/Desktop/Ecommerce/beverages.html"><button class="shopbtn"><div class="frame">
-                <img src="beverages.jpeg" class="categary-pic">
+            <a href="beverages.html"><button class="shopbtn"><div class="frame">
+                <img src="images/homepages images/beverages.jpeg" class="categary-pic">
                 <p style="font-size: 20px;">Beverages</p>
             </div></button></a>
             <button class="shopbtn"><div class="frame">
-                <img src="meet.avif" class="categary-pic">
+                <img src="images/homepages images/meet.avif" class="categary-pic">
                 <p style="font-size: 20px;">Meat</p>
             </div></button>
-            
             <button class="shopbtn"><div class="frame">
-                <img src="bread.jpeg" class="categary-pic">
+                <img src="images/homepages images/bread.jpeg" class="categary-pic">
                 <p style="font-size: 20px;">Backery Items</p>
             </div></button>
-            
-            
-            
-           
         </div>
     </div>
- 
+
     <div class="marquee">
-        <p>  
-            <span>-  FREE DELIVERY ORDER UP TO RS.15000  -</span>
-            <span>-  SAME DAY DELIVERY UNDER CASH ON DELIVERY  -</span>
-            <span>-  ONEY BACK GUARANTEE FOR 1 MONTH  -</span>
+        <p>
+            <span>- FREE DELIVERY ORDER UP TO RS.15000 -</span>
+            <span>- SAME DAY DELIVERY UNDER CASH ON DELIVERY -</span>
+            <span>- MONEY BACK GUARANTEE FOR 1 MONTH -</span>
         </p>
     </div>
+
     <footer class="footer">
         <div>
             <h3>Store Information</h3>
@@ -116,5 +169,23 @@
             <button>Subscribe</button>
         </div>
     </footer>
+
+    <!-- 🔔 JS to auto-close the ad -->
+   <script>
+    // Initially hide the ad modal
+    document.getElementById('adModal').style.display = 'none';
+
+    // Show ad after 2 minutes (120000 milliseconds)
+    setTimeout(() => {
+        document.getElementById('adModal').style.display = 'flex';
+    }, 2 * 60 * 100); // 2 minutes
+
+    // Close button logic
+    function closeAd() {
+        document.getElementById('adModal').style.display = 'none';
+    }
+</script>
+
+
 </body>
 </html>
