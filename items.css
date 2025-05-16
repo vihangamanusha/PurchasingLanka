@@ -55,23 +55,28 @@
         }
 
         .add-to-cart {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 10px;
-            border-color: rgb(108, 143, 116);
-            background: #ffffff;
-            color:black; 
-            cursor: pointer;
-            border-radius: 5px;
+              background-color: white;
+              color: #555;
+              border: none;
+              border-radius: 25px;
+              padding: 10px 20px;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+              font-weight: 500;
+              font-size: 16px;
+              margin-left: 30px;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+              transition: all 0.3s ease
         }
 
         
 
         .add-to-cart:hover {
-            background: #62cd54;
-            color: white;
+            background-color: #62d75e;
+            transform: translateY(-2px);
+            color:white;
         }
 
         .discount {
@@ -85,4 +90,29 @@
             border-radius: 5px;
         }
 
-   
+        /*vegatbale topic*/
+        .section-title {
+           display: flex;
+           align-items: center;
+           text-align: center;
+           padding-top: 60px;
+           gap: 20px;
+        }
+
+        .section-title hr {
+            flex: 1;
+            border: none;
+            border-top: 2px solid #ccc;
+        
+        }
+
+        .section-title span {
+            font-size: 24px;
+            font-weight: 500;
+            color: #222;
+        }
+       
+        .footer_space{
+            
+            height: 70px;
+        }
