@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PurchasingLanka.lk</title>
+    
+    <!-- Ad Modal CSS -->
+    <style>
+        .ad-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .ad-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+        .ad-content h2 {
+            margin-bottom: 10px;
+        }
+        .ad-content button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ad-content button:hover {
+            background: #218838;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="new.css">
+</head>
+
+<body>
+
+   
+    <div class="top-bar">
+        Get Upto 25% Cashback On First Order: GET25OFF - 
+        <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+
+    <header class="header">
+        <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="login-links">
+            <a href="#" style="color:white">🛒 Cart</a>
+
+            <a href="login.html" style="color:white">Login</a>
+            <a href="signup.html" style="color: white;">Sign Up</a>
+        </div>
+    </header>
+
+    <div class="nav-links">
+        <div class="shop-category">
+            <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+                <a href="vegetable.html">Vegetables</a>
+                <a href="fruits.html">Fruits</a>
+                <a href="#">Dairy</a>
+                <a href="beverages.html">Beverages</a>
+                <a href="#">Meats</a>
+                <a href="#">Sea Food</a>
+                <a href="#">Bakery</a>
+                <a href="#">Household</a>
+                <a href="#">Grocery</a>
+                <a href="#">Health & Beauty</a>
+            </div>
+        </div>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Collections</a>
+        <a href="#">Beverages</a>
+        <a href="#">Contact</a>
+        <a href="#">Blog</a>
+    </div>
+
+ <img src="images/homepages images/bacground2.png" style="width:1513px; height: 500px;">
+
+     <div class="section-title">
+        <hr>
+              <span><strong>Fruits</strong></span>
+        <hr>
+    </div>
+
+
+
+
+<footer class="footer">
+        <div>
+            <h3 style="color:beige">Purchasing Lanka</h3>
+            <p>Purchasing Lanka Pvt Ltd</p>
+            <p>No 214,Galle Road, Matara, Sri Lanka</p>
+            <h3>+94 46 4859 453</h3>
+            <p>(Daily operating hours 8.00 am to 8.00 pm)</p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Quick Links</h3>
+            <p><a href="#">About Us</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Shipping & Refund</a></p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
+            <p><a href="#">About Us</a></p>
+            <p><a href="#">Contact Us</a></p>
+            
+        </div>
+         <div>
+            <h3 style="color:rgb(102, 182, 135)">Categaries</h3>
+            <p><a href="#">Vegees</a></p>
+            <p><a href="#">Fruits</a></p>
+            <p><a href="#">Snacks</a></p>
+            <p><a href="#">Beverages</a></p>
+            
+        </div>
+        <div class="newsletter">
+            <h3 style="color:rgb(102, 182, 135)">Our Newsletter</h3>
+            <input type="email" placeholder="Email">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+
+    <!-- 🔔 JS to auto-close the ad -->
+   <script>
+    // Initially hide the ad modal
+    document.getElementById('adModal').style.display = 'none';
+
+    // Show ad after 2 minutes (120000 milliseconds)
+    setTimeout(() => {
+        document.getElementById('adModal').style.display = 'flex';
+    }, 2 * 60 * 100); // 2 minutes
+
+    function closeAd() {
+      document.getElementById('adModal').style.display = 'none';
+    }
+
+    // Slider Logic
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    }
+  </script>
+    <div class="bottom-bar">
+        <p>Copyright © 2025 Purchasing Lanka (Pvt) Ltd. All Rights Reserved</p>
+    </div>
