@@ -82,67 +82,83 @@
             <img src="images\rice images\1.jpg" alt="Big Onions">
             <div class="product-name">My Choice Supiri Keeri Samba Rice 5kg</div>
             <div class="price">Rs 1300.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('My Choice Supiri Keeri Samba Rice 5kg', 'images/rice images/1.jpg', 1300.00)">🛒 Add to Cart</button>
         </div>
     
         <div class="product">
             <img src="images\rice images\2.jpg" alt="Coconut">
             <div class="product-name">Araliya Premium Nadu Rice 5kg</div>
             <div class="price">Rs 1150.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Araliya Premium Nadu Rice 5kg', 'images/rice images/2.jpg', 1150.00)">🛒 Add to Cart</button>
         </div>
     
         <div class="product">
             <img src="images\rice images\3.jpg" alt="Coconut">
             <div class="product-name">Araliya Premium Samba Rice 5kg</div>
             <div class="price">Rs 1200.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Araliya Premium Samba Rice 5kg', 'images/rice images/3.jpg', 1200.00)">🛒 Add to Cart</button>
         </div>
     
         <div class="product">
             <img src="images\rice images\4.jpg" alt="Coconut">
             <div class="product-name">Nipuna Nadu Rice 5kg</div>
             <div class="price">Rs 1150.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Nipuna Nadu Rice 5kg', 'images/rice images/4.jpg', 1150.00)">🛒 Add to Cart</button>
         </div>
         <div class="product">
             <img src="images\rice images\5.jpg" alt="Coconut">
             <div class="product-name">Keeri Samba Rice 1kg</div>
             <div class="price">Rs 260.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Keeri Samba Rice 1kg', 'images/rice images/5.jpg', 260.00)">🛒 Add to Cart</button>
         </div>
         <div class="product">
             <img src="images\rice images\6.jpg" alt="Coconut">
             <div class="product-name">Imported White Rice 1kg</div>
             <div class="price">Rs 208.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Imported White Rice 1kg', 'images/rice images/6.jpg', 208.00)">🛒 Add to Cart</button>
         </div>
         <div class="product">
             <img src="images\rice images\7.jpg" alt="Coconut">
             <div class="product-name">Imported Nadu Rice 1kg</div>
             <div class="price">Rs 219.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Imported Nadu Rice 1kg', 'images/rice images/7.jpg', 219.00)">🛒 Add to Cart</button>
         </div>
         <div class="product">
             <img src="images\rice images\8.jpg" alt="Coconut">
             <div class="product-name">White Samba Kekulu 1kg</div>
             <div class="price">Rs 240.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('White Samba Kekulu 1kg', 'images/rice images/8.jpg', 240.00)">🛒 Add to Cart</button>
         </div>
         <div class="product">
             <img src="images\rice images\9.jpg" alt="Coconut">
             <div class="product-name">Rathna Nadu Rice 5kg</div>
             <div class="price">Rs 1150.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Rathna Nadu Rice 5kg', 'images/rice images/9.jpg', 1150.00)">🛒 Add to Cart</button>
         </div>
         <div class="product">
             <img src="images\rice images\10.jpg" alt="Coconut">
             <div class="product-name">Anchor Basmathi Rice 5kg</div>
             <div class="price">Rs 6975.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Anchor Basmathi Rice 5kg', 'images/rice images/10.jpg', 6975.00)">🛒 Add to Cart</button>
         </div>
         
-        
+        <script>
+             function addToCart(name, image, price) {
+             const product = { name, image, price, quantity: 1 };
+            let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+       // Check if product already exists
+       const existing = cart.find(item => item.name === name);
+          if (existing) {
+             existing.quantity += 1; // Increment quantity if exists
+          } else {
+             cart.push(product); // Add new product
+          }
+  
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          window.location.href = "addcart.html";
+       }
+   </script>
    </div>
 
    <div class="footer_space">
