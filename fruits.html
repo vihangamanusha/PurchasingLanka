@@ -79,162 +79,199 @@
             <img src="images/fruits_images/1.jpg" alt="Big Onions">
             <div class="product-name">Orange Import</div>
             <div class="price">Rs 1800.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Orange Import', 'images/fruits_images/1.jpg', 1800.00)">🛒 Add to Cart</button>
         </div>
     
-        <div class="product">
-            <img src="images/fruits_images/2.jpg" alt="Coconut">
-            <div class="product-name">Grapes-Red</div>
-            <div class="price">Rs 2880.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-    
-        <div class="product">
-            <img src="images/fruits_images/3.jpg" alt="Coconut">
-            <div class="product-name">Apple -Red</div>
-            <div class="price">Rs 1950.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-    
-        <div class="product">
-            <img src="images/fruits_images/4.jpg" alt="Coconut">
-            <div class="product-name">Grapes-Black</div>
-            <div class="price">Rs 2760.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/5.jpg" alt="Coconut">
-            <div class="product-name">Apple-Green</div>
-            <div class="price">Rs 2850.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/6.jpg" alt="Cocout">
-            <div class="product-name">Delum (Local)</div>
-            <div class="price">Rs 2250.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/7.jpg" alt="Coconut">
-            <div class="product-name">Kiwi Fruits</div>
-            <div class="price">Rs 3600.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/8.jpg" alt="Coconut">
-            <div class="product-name">Green Pears</div>
-            <div class="price">Rs 1650.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/9.jpg" alt="Coconut">
-            <div class="product-name">Water Melon</div>
-            <div class="price">Rs 145.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/10.jpg" alt="Coconut">
-            <div class="product-name">Papaya</div>
-            <div class="price">Rs 140.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/11.jpg" alt="Coconut">
-            <div class="product-name">Avacado</div>
-            <div class="price">Rs 820.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/fruits_images/12.jpg" alt="Coconut">
-            <div class="product-name">Pineapple</div>
-            <div class="price">Rs 370.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-        
-        <div class="product">
-            <img src="images/fruits_images/13.jpg" alt="Coconut">
-            <div class="product-name">Guava</div>
-            <div class="price">Rs 960.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-    
-        <div class="product">
-            <img src="images/fruits_images/14.jpg" alt="Coconut">
-            <div class="product-name">Lemon-Local</div>
-            <div class="price">Rs 640.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
+        <script>
+    function addToCart(name, image, price) {
+        const product = { name, image, price };
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(name + " added to cart!");
+    }
+</script>
 
-        <div class="product">
-            <img src="images/fruits_images/15.jpg" alt="Coconut">
-            <div class="product-name">Woodapple</div>
-            <div class="price">Rs 980.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
+<div class="product">
+    <img src="images/fruits_images/2.jpg" alt="Grapes-Red">
+    <div class="product-name">Grapes-Red</div>
+    <div class="price">Rs 2880.00</div>
+    <button class="add-to-cart" onclick="addToCart('Grapes-Red', 'images/fruits_images/2.jpg', 2880.00)">🛒 Add to Cart</button>
+</div>
 
-        <div class="product">
-            <img src="images/fruits_images/16.jpg" alt="Coconut">
-            <div class="product-name">Mandarin-Local</div>
-            <div class="price">Rs 790.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
+<div class="product">
+    <img src="images/fruits_images/3.jpg" alt="Apple -Red">
+    <div class="product-name">Apple -Red</div>
+    <div class="price">Rs 1950.00</div>
+    <button class="add-to-cart" onclick="addToCart('Apple -Red', 'images/fruits_images/3.jpg', 1950.00)">🛒 Add to Cart</button>
+</div>
 
-        <div class="product">
-            <img src="images/fruits_images/17.jpg" alt="Coconut">
-            <div class="product-name">Jambola</div>
-            <div class="price">Rs 420.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-         
-        <div class="product">
-            <img src="images/fruits_images/18.jpg" alt="Coconut">
-            <div class="product-name">Beli</div>
-            <div class="price">Rs 920.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
+<div class="product">
+    <img src="images/fruits_images/4.jpg" alt="Grapes-Black">
+    <div class="product-name">Grapes-Black</div>
+    <div class="price">Rs 2760.00</div>
+    <button class="add-to-cart" onclick="addToCart('Grapes-Black', 'images/fruits_images/4.jpg', 2760.00)">🛒 Add to Cart</button>
+</div>
 
-        <div class="product">
-            <img src="images/fruits_images/19.jpg" alt="Coconut">
-            <div class="product-name">Mangosteen</div>
-            <div class="price">Rs 2310.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-    
-        <div class="product">
-            <img src="images/fruits_images/20jpg.jpg"alt="Coconut">
-            <div class="product-name">Dragon Fruits</div>
-            <div class="price">Rs 195.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-    
-        <div class="product">
-            <img src="images/fruits_images/21.jpg"alt="Coconut">
-            <div class="product-name">Banana-Ambul</div>
-            <div class="price">Rs 120.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
+<div class="product">
+    <img src="images/fruits_images/5.jpg" alt="Apple-Green">
+    <div class="product-name">Apple-Green</div>
+    <div class="price">Rs 2850.00</div>
+    <button class="add-to-cart" onclick="addToCart('Apple-Green', 'images/fruits_images/5.jpg', 2850.00)">🛒 Add to Cart</button>
+</div>
 
-        <div class="product">
-            <img src="images/fruits_images/22.jpg" alt="Coconut">
-            <div class="product-name">Banana-Seeni</div>
-            <div class="price">Rs 140.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
+<div class="product">
+    <img src="images/fruits_images/6.jpg" alt="Delum (Local)">
+    <div class="product-name">Delum (Local)</div>
+    <div class="price">Rs 2250.00</div>
+    <button class="add-to-cart" onclick="addToCart('Delum (Local)', 'images/fruits_images/6.jpg', 2250.00)">🛒 Add to Cart</button>
+</div>
 
-        <div class="product">
-            <img src="images/fruits_images/23.jpg" alt="Coconut">
-            <div class="product-name">Banana-Kolikuttu</div>
-            <div class="price">Rs 320.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
-    
-        <div class="product">
-            <img src="images/fruits_images/24.jpg" alt="Coconut">
-            <div class="product-name">Banana-CIC </div>
-            <div class="price">Rs 620.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
-        </div>
+<div class="product">
+    <img src="images/fruits_images/7.jpg" alt="Kiwi Fruits">
+    <div class="product-name">Kiwi Fruits</div>
+    <div class="price">Rs 3600.00</div>
+    <button class="add-to-cart" onclick="addToCart('Kiwi Fruits', 'images/fruits_images/7.jpg', 3600.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/8.jpg" alt="Green Pears">
+    <div class="product-name">Green Pears</div>
+    <div class="price">Rs 1650.00</div>
+    <button class="add-to-cart" onclick="addToCart('Green Pears', 'images/fruits_images/8.jpg', 1650.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/9.jpg" alt="Water Melon">
+    <div class="product-name">Water Melon</div>
+    <div class="price">Rs 145.00</div>
+    <button class="add-to-cart" onclick="addToCart('Water Melon', 'images/fruits_images/9.jpg', 145.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/10.jpg" alt="Papaya">
+    <div class="product-name">Papaya</div>
+    <div class="price">Rs 140.00</div>
+    <button class="add-to-cart" onclick="addToCart('Papaya', 'images/fruits_images/10.jpg', 140.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/11.jpg" alt="Avacado">
+    <div class="product-name">Avacado</div>
+    <div class="price">Rs 820.00</div>
+    <button class="add-to-cart" onclick="addToCart('Avacado', 'images/fruits_images/11.jpg', 820.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/12.jpg" alt="Pineapple">
+    <div class="product-name">Pineapple</div>
+    <div class="price">Rs 370.00</div>
+    <button class="add-to-cart" onclick="addToCart('Pineapple', 'images/fruits_images/12.jpg', 370.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/13.jpg" alt="Guava">
+    <div class="product-name">Guava</div>
+    <div class="price">Rs 960.00</div>
+    <button class="add-to-cart" onclick="addToCart('Guava', 'images/fruits_images/13.jpg', 960.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/14.jpg" alt="Lemon-Local">
+    <div class="product-name">Lemon-Local</div>
+    <div class="price">Rs 640.00</div>
+    <button class="add-to-cart" onclick="addToCart('Lemon-Local', 'images/fruits_images/14.jpg', 640.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/15.jpg" alt="Woodapple">
+    <div class="product-name">Woodapple</div>
+    <div class="price">Rs 980.00</div>
+    <button class="add-to-cart" onclick="addToCart('Woodapple', 'images/fruits_images/15.jpg', 980.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/16.jpg" alt="Mandarin-Local">
+    <div class="product-name">Mandarin-Local</div>
+    <div class="price">Rs 790.00</div>
+    <button class="add-to-cart" onclick="addToCart('Mandarin-Local', 'images/fruits_images/16.jpg', 790.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/17.jpg" alt="Jambola">
+    <div class="product-name">Jambola</div>
+    <div class="price">Rs 420.00</div>
+    <button class="add-to-cart" onclick="addToCart('Jambola', 'images/fruits_images/17.jpg', 420.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/18.jpg" alt="Beli">
+    <div class="product-name">Beli</div>
+    <div class="price">Rs 920.00</div>
+    <button class="add-to-cart" onclick="addToCart('Beli', 'images/fruits_images/18.jpg', 920.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/19.jpg" alt="Mangosteen">
+    <div class="product-name">Mangosteen</div>
+    <div class="price">Rs 2310.00</div>
+    <button class="add-to-cart" onclick="addToCart('Mangosteen', 'images/fruits_images/19.jpg', 2310.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/20.jpg" alt="Dragon Fruits">
+    <div class="product-name">Dragon Fruits</div>
+    <div class="price">Rs 195.00</div>
+    <button class="add-to-cart" onclick="addToCart('Dragon Fruits', 'images/fruits_images/20.jpg', 195.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/21.jpg" alt="Banana-Ambul">
+    <div class="product-name">Banana-Ambul</div>
+    <div class="price">Rs 120.00</div>
+    <button class="add-to-cart" onclick="addToCart('Banana-Ambul', 'images/fruits_images/21.jpg', 120.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/22.jpg" alt="Banana-Seeni">
+    <div class="product-name">Banana-Seeni</div>
+    <div class="price">Rs 140.00</div>
+    <button class="add-to-cart" onclick="addToCart('Banana-Seeni', 'images/fruits_images/22.jpg', 140.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/23.jpg" alt="Banana-Kolikuttu">
+    <div class="product-name">Banana-Kolikuttu</div>
+    <div class="price">Rs 320.00</div>
+    <button class="add-to-cart" onclick="addToCart('Banana-Kolikuttu', 'images/fruits_images/23.jpg', 320.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/fruits_images/24.jpg" alt="Banana-CIC">
+    <div class="product-name">Banana-CIC</div>
+    <div class="price">Rs 620.00</div>
+    <button class="add-to-cart" onclick="addToCart('Banana-CIC', 'images/fruits_images/24.jpg', 620.00)">🛒 Add to Cart</button>
+</div>
+
    </div>
+
+   <script>
+             function addToCart(name, image, price) {
+             const product = { name, image, price, quantity: 1 };
+            let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+       // Check if product already exists
+       const existing = cart.find(item => item.name === name);
+          if (existing) {
+             existing.quantity += 1; // Increment quantity if exists
+          } else {
+             cart.push(product); // Add new product
+          }
+  
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          window.location.href = "addcart.html";
+       }
+   </script>
     <div class="footer_space">
 
    </div>
