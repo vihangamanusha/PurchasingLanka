@@ -42,6 +42,54 @@
         .ad-content button:hover {
             background: #218838;
         }
+
+        .random-vegetables-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .random-vegetables-container .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 180px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 8px #eee;
+             margin-bottom: 60px;
+        }
+
+        .random-vegetables-container .product img {
+           width: 100%;
+           height: auto;
+           border-radius: 6px;
+          
+        }
+
+        .random-vegetables-container .product-name {
+           font-weight: bold;
+           margin: 10px 0 5px;
+        }
+
+        .random-vegetables-container .price {
+           color: green;
+           margin-bottom: 10px;
+          }
+
+        .random-vegetables-container button {
+             background-color: #4CAF50;
+             color: white;
+             border: none;
+             padding: 6px 10px;
+             cursor: pointer;
+             border-radius: 4px;
+         }
+
+        .random-vegetables-container button:hover {
+             background-color: #45a049;
+}
+
     </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -172,6 +220,77 @@
             <span>- MONEY BACK GUARANTEE FOR 1 MONTH -</span>
         </p>
     </div>
+
+    <section id="random-vegetables-section">
+          <center><h2>Vegetables</h2></center>
+          <div class="random-vegetables-container"></div>
+    </section>
+    
+
+    <script>
+  // Same vegetable data from vegetable page:
+  const allVegetables = [
+    { name: 'Big Onions', image: 'images/vegetables_image/onion.jpg', price: 150.00 },
+    { name: 'Cabbage', image: 'images/vegetables_image/cabbage.jpg', price: 690.00 },
+    { name: 'Leeks', image: 'images/vegetables_image/leeks.jpg', price: 240.00 },
+    { name: 'Lemon', image: 'images/vegetables_image/lime.jpg', price: 480.00 },
+    { name: 'Ladies Fingers', image: 'images/vegetables_image/ladiesfingers.jpg', price: 195.00 },
+    { name: 'Green Chillies', image: 'images/vegetables_image/greenchilies.jpg', price: 310.00 },
+    { name: 'Garlic', image: 'images/vegetables_image/garlic.jpg', price: 990.00 },
+    { name: 'Dambala', image: 'images/vegetables_image/dambala.jpg', price: 550.00 },
+    { name: 'Cucumber', image: 'images/vegetables_image/cucmber.jpg', price: 100.00 },
+    { name: 'Carrot', image: 'images/vegetables_image/carrot.jpg', price: 1250.00 },
+    { name: 'Capsicum', image: 'images/vegetables_image/capsicum.jpg', price: 800.00 },
+  ];
+  
+   
+
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function displayRandomVegetablesOnHome() {
+    const container = document.querySelector(".random-vegetables-container");
+    if (!container) return; // Safety check
+
+    container.innerHTML = "";
+    shuffle(allVegetables);
+    const selected = allVegetables.slice(0, 6); // Show 4 random veggies on homepage
+
+    selected.forEach(product => {
+      container.innerHTML += `
+        <div class="product">
+          <img src="${product.image}" alt="${product.name}" />
+          <div class="product-name">${product.name}</div>
+          <div class="price">Rs ${product.price.toFixed(2)}</div>
+          <button class="add-to-cart" onclick="addToCart('${product.name}', '${product.image}', ${product.price})">🛒 Add to Cart</button>
+        </div>
+      `;
+    });
+  }
+
+  function addToCart(name, image, price) {
+    const product = { name, image, price, quantity: 1 };
+    let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push(product);
+    }
+
+    localStorage.setItem("cartProducts", JSON.stringify(cart));
+    window.location.href = "addcart.html";  // Redirect to cart page after adding
+  }
+
+  // Run on page load
+  window.onload = displayRandomVegetablesOnHome;
+</script>
 
     <footer class="footer">
         

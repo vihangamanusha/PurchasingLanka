@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>PurchasingLanka.lk</title>
-    <link rel="icon" href="images/homepages images/logo.png" type="image/png">
-
+    <title>Contact Us - Jaykay Marketing Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -28,15 +25,14 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e9d8fd 100%);
-            color: var(--dark);
-            min-height: 100vh;
+        .add {
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            color: var(--text);
             overflow-x: hidden;
         }
 
-        .header-banner {
+        .banner {
             height: 400px;
             background: linear-gradient(rgba(107, 70, 193, 0.7), rgba(107, 70, 193, 0.5)),
                         url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
@@ -168,7 +164,7 @@
             animation: inputFocus 0.3s ease forwards;
         }
 
-        button {
+        .send {
             background: var(--primary);
             color: white;
             padding: 1rem 2rem;
@@ -179,9 +175,9 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-        }
+        }*/
 
-        button::after {
+        .send::after {
             content: '';
             position: absolute;
             top: -50%;
@@ -193,12 +189,12 @@
             transition: all 0.3s ease;
         }
 
-        button:hover {
+        .send:hover {
             background: var(--secondary);
             transform: translateY(-2px);
         }
 
-        button:hover::after {
+        .send:hover::after {
             left: 50%;
         }
 
@@ -416,7 +412,7 @@
             <button><i class="fas fa-search"></i></button>
         </div>
         <div class="login-links">
-            <a href="addcart.html" style="color:white">🛒 Cart</a>
+            <a href="#" style="color:white">🛒 Cart</a>
 
             <a href="login.html" style="color:white">Login</a>
             <a href="signup.html" style="color: white;">Sign Up</a>
@@ -463,8 +459,8 @@
     </div>
     
     
-    </div>
-    <div class="header-banner">
+    <div class="add">
+    <div class="banner">
         <div class="banner-content">
             <h1>Connect With Us</h1>
             <p>Your Success Journey Starts Here</p>
@@ -571,7 +567,7 @@
                      data-expired-callback="onCaptchaExpired"></div>
                 <div class="error-message" id="captchaError">Please complete the CAPTCHA</div>
 
-                <button type="submit">
+                <button class="send" type="submit">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
                 <div class="success-message" id="successMessage">
@@ -579,7 +575,7 @@
                 </div>
             </form>
         </div>
-
+</div>
     </div>
     <div class="footer_space">
 

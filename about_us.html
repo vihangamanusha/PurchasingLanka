@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>PurchasingLanka.lk</title>
-    <link rel="icon" href="images/homepages images/logo.png" type="image/png">
-
+    <title>About Us - purchasingLanka.lk</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="items.css">
     <link rel="stylesheet" href="new.css">
-    
+
     <style>
         :root {
             --primary: #6b46c1;
@@ -27,7 +24,7 @@
             box-sizing: border-box;
         }
 
-        body {
+        .add {
             font-family: 'Poppins', sans-serif;
             background: #f9f9f9;
             color: var(--text);
@@ -35,10 +32,10 @@
         }
 
         /* Parallax Header */
-        .parallax-header {
+        .parallax {
             height: 70vh;
             background: linear-gradient(rgba(107, 70, 193, 0.8), rgba(107, 70, 193, 0.8)),
-                        url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+                url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
@@ -50,14 +47,14 @@
             overflow: hidden;
         }
 
-        .header-content {
+        .new-content {
             text-align: center;
             color: white;
             transform: translateY(0);
             transition: transform 0.5s;
         }
 
-        .header-content h1 {
+        .new-content h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
             animation: textFloat 3s ease-in-out infinite;
@@ -92,7 +89,7 @@
             background: white;
             padding: 2rem;
             border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
             text-align: center;
             cursor: pointer;
@@ -123,7 +120,7 @@
             margin: 2rem 0;
             background: white;
             border-radius: 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             position: relative;
             opacity: 0;
             transform: translateX(-50px);
@@ -169,7 +166,7 @@
             border-radius: 1rem;
             text-align: center;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .award-card:hover {
@@ -178,14 +175,29 @@
 
         /* Animations */
         @keyframes textFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-50px) rotate(180deg); }
-            100% { transform: translateY(0) rotate(360deg); }
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
         }
 
         .scroll-animate {
@@ -204,126 +216,130 @@
             .header-content h1 {
                 font-size: 2.5rem;
             }
-            
+
             .stats-grid {
                 grid-template-columns: 1fr;
                 padding: 2rem 1rem;
             }
         }
+
         .content-section {
-        padding: 4rem 2rem;
-        background: rgba(255,255,255,0.95);
-        margin: 2rem auto;
-        border-radius: 1rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        max-width: 1200px;
-    }
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
+        }
 
-    .section-title {
-        color: var(--primary);
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
+        .section-title {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
 
-    .highlight-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
+        .highlight-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
 
-    .accent {
-        color: var(--primary);
-        font-weight: 600;
-    }
+        .accent {
+            color: var(--primary);
+            font-weight: 600;
+        }
 
-    .value-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-    }
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
 
-    .value-card {
-        padding: 1.5rem;
-        border-radius: 1rem;
-        background: linear-gradient(145deg, #ffffff, #f8f8f8);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        transition: transform 0.3s;
-    }
+        .value-card {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            background: linear-gradient(145deg, #ffffff, #f8f8f8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
 
-    .value-card:hover {
-        transform: translateY(-5px);
-    }
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .commitment-box {
-        background: rgba(107, 70, 193, 0.05);
-        padding: 2rem;
-        border-radius: 1rem;
-        margin-top: 2rem;
-    }
+        .commitment-box {
+            background: rgba(107, 70, 193, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+        }
 
-    .commitment-list {
-        list-style: none;
-        padding: 0;
-    }
+        .commitment-list {
+            list-style: none;
+            padding: 0;
+        }
 
-    .commitment-list li {
-        margin: 1rem 0;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+        .commitment-list li {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
     </style>
 </head>
-<body>
+
+<body class="body">
     <div class="top-bar">
-        Get Upto 25% Cashback On First Order: GET25OFF - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+        Get Upto 25% Cashback On First Order: GET25OFF - <a href="#"
+            style="color: white; text-decoration: underline;">SHOP NOW</a>
     </div>
-     <header class="header">
+    <header class="header">
         <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
         <div class="search-box">
             <input type="text" placeholder="Search">
             <button><i class="fas fa-search"></i></button>
         </div>
         <div class="login-links">
-            <a href="addcart.html" style="color:white">🛒 Cart</a>
+            <a href="#" style="color:white">🛒 Cart</a>
 
             <a href="login.html" style="color:white">Login</a>
             <a href="signup.html" style="color: white;">Sign Up</a>
         </div>
     </header>
-    
-    
+
+
     <div class="nav-links">
         <div class="shop-category">
             <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
             <div class="dropdown-content">
-               <a href="vegetable.html">Vegetables</a>
-               <a href="fruits.html">Fruits</a>
-               <a href="dairy.html">Dairy</a>
-               <a href="beverages.html">Beverages</a>
-               <a href="meat.html">Meats</a>
-               <a href="seefood.html">Sea Food</a>
-               <a href="Backery.html">Bakery</a>
-               
-         <!-- Grocery with subcategories -->
-            <div class="dropdown-item">
-               <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
-                  <div class="sub-dropdown">
-                      <a href="Biscuits.html">Biscuits</a>
-                      <a href="snacks.html">Snacks</a>
-                      <a href="rice.html">Rice</a>
-                      <a href="cooking.html">Cooking Items</a>
-                      <a href="noodles.html">Noodles & Pasta</a>
-                      <a href="oils.html">Oils</a>
+                <a href="vegetable.html">Vegetables</a>
+                <a href="fruits.html">Fruits</a>
+                <a href="dairy.html">Dairy</a>
+                <a href="beverages.html">Beverages</a>
+                <a href="meat.html">Meats</a>
+                <a href="seefood.html">Sea Food</a>
+                <a href="Backery.html">Bakery</a>
 
-                  </div>
-         </div>
+                <!-- Grocery with subcategories -->
+                <div class="dropdown-item">
+                    <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
+                    <div class="sub-dropdown">
+                        <a href="Biscuits.html">Biscuits</a>
+                        <a href="snacks.html">Snacks</a>
+                        <a href="rice.html">Rice</a>
+                        <a href="cooking.html">Cooking Items</a>
+                        <a href="noodles.html">Noodles & Pasta</a>
+                        <a href="oils.html">Oils</a>
 
-               <a href="beauty.html">Health & Beauty</a>
-</div>
+                    </div>
+                </div>
+
+                <a href="beauty.html">Health & Beauty</a>
+            </div>
 
         </div>
         <a href="homepage.html">Home</a>
@@ -333,26 +349,28 @@
         <a href="contact_us.html">Contact</a>
         <a href="about_us.html">About Us</a>
     </div>
-    
-    
+
+<div class="add">
     </div>
-    <header class="parallax-header">
+    <section class="parallax">
         <div class="floating-icons">
             <i class="floating-icon fas fa-shopping-cart"></i>
             <i class="floating-icon fas fa-tag"></i>
             <i class="floating-icon fas fa-box-open"></i>
         </div>
-        <div class="header-content">
+        <div class="new-content">
             <h1>purchasingLanka.lk</h1>
             <p>Sri Lanka's Digital Marketplace Leader</p>
         </div>
-    </header>
+    </section>
     <section class="content-section scroll-animate">
         <div class="animated-content">
             <h2 class="section-title">Our Commitment to Sri Lanka</h2>
             <div class="mission-statement">
-                <p class="highlight-text">PurchasingLanka.lk is a proudly Sri Lankan-owned online supermarket committed to delivering <span class="accent">convenience</span>, <span class="accent">quality</span>, and <span class="accent">affordability</span> to households across the nation.</p>
-                
+                <p class="highlight-text">PurchasingLanka.lk is a proudly Sri Lankan-owned online supermarket committed
+                    to delivering <span class="accent">convenience</span>, <span class="accent">quality</span>, and
+                    <span class="accent">affordability</span> to households across the nation.</p>
+
                 <div class="value-grid">
                     <div class="value-card">
                         <i class="fas fa-bolt"></i>
@@ -365,9 +383,10 @@
                         <p>Reliable delivery to all provinces</p>
                     </div>
                 </div>
-    
+
                 <div class="commitment-box">
-                    <p>Driven by innovation and a customer-first mindset, we're committed to enhancing Sri Lankan lives through:</p>
+                    <p>Driven by innovation and a customer-first mindset, we're committed to enhancing Sri Lankan lives
+                        through:</p>
                     <ul class="commitment-list">
                         <li><i class="fas fa-check-circle"></i> Quality-controlled sourcing</li>
                         <li><i class="fas fa-check-circle"></i> Sustainable packaging</li>
@@ -421,12 +440,12 @@
             <h3>Digital Innovation Award</h3>
         </div>
     </section>
-
+</div>
     <script>
         // Scroll animation trigger
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
@@ -445,7 +464,7 @@
             const count = +counter.innerText.replace(/\D/g, '');
             const inc = target / speed;
 
-            if(count < target) {
+            if (count < target) {
                 counter.innerText = Math.ceil(count + inc) + (counter.textContent.includes('%') ? '%' : '+');
                 setTimeout(() => startCounter(counter), 10);
             } else {
@@ -461,26 +480,22 @@
         // Parallax effect
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            document.querySelector('.header-content').style.transform = 
+            document.querySelector('.header-content').style.transform =
                 `translateY(${scrolled * 0.5}px)`;
         });
     </script>
     <div class="footer_space">
 
-   </div>
-   <footer class="footer">
-        
-        
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000" 
-            width="450" 
-            height="250" 
-            style="border:0; border-radius: 10px;" 
-            allowfullscreen="" 
-            loading="lazy" 
+    </div>
+    <footer class="footer">
+
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000"
+            width="450" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-    </div>
+        </div>
         <div>
             <h3 style="color:beige">Purchasing Lanka</h3>
             <p>Purchasing Lanka Pvt Ltd</p>
@@ -498,13 +513,14 @@
             <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
             <p><a href="#">About Us</a></p>
             <p><a href="#">Contact Us</a></p>
-            
+
         </div>
-         
-        
+
+
     </footer>
     <div class="bottom-bar">
         <p>Copyright © 2025 Purchasing Lanka (Pvt) Ltd. All Rights Reserved</p>
     </div>
 </body>
+
 </html>
