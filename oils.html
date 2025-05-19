@@ -151,14 +151,21 @@
             <img src="images\oil images\12.jpg".jpg alt="Coconut">
             <div class="product-name">Marina Coconut Oil Pack 500ml</div>
             <div class="price">Rs 1020.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Marina Coconut Oil Pack 500ml', 'images/oil images/12.jpg', 1020.00)">🛒 Add to Cart</button>
         </div>
         
         
-
+  
         
    </div>
-
+    <!-- JavaScript to store product and redirect -->
+  <script>
+    function addToCart(name, image, price) {
+      const product = { name, image, price };
+      localStorage.setItem("cartProduct", JSON.stringify(product));
+      window.location.href = "addcart.html";
+    }
+  </script>
    <div class="footer_space">
 
    </div>
