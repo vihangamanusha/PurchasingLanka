@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Jaykay Marketing Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.3/imask.min.js"></script>
+     <link rel="stylesheet" href="items.css">
+     <link rel="stylesheet" href="new.css">
+    
+    <style>
+        :root {
+            --primary: #6b46c1;
+            --secondary: #553c9a;
+            --accent: #f6e05e;
+            --dark: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e9d8fd 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header-banner {
+            height: 400px;
+            background: linear-gradient(rgba(107, 70, 193, 0.7), rgba(107, 70, 193, 0.5)),
+                        url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            animation: bannerEntrance 1s ease-out;
+        }
+
+        .banner-content {
+            text-align: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: textFloat 3s ease-in-out infinite;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -100px auto 4rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 1.5rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+            animation: containerFloat 3s ease-in-out infinite;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover::after {
+            left: 50%;
+        }
+
+        .map-container {
+            height: 300px;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-top: 2rem;
+            transform: perspective(1000px) rotateX(10deg);
+            transition: transform 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: perspective(1000px) rotateX(0);
+        }
+
+        .form-section {
+            position: relative;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:not(:placeholder-shown) ~ label {
+            top: -0.8rem;
+            left: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+            background: white;
+            padding: 0 0.3rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.8rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+            animation: inputFocus 0.3s ease forwards;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        button:hover::after {
+            left: 50%;
+        }
+
+        .category-selector {
+            margin-bottom: 2rem;
+        }
+
+        .selector-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-btn {
+            flex: 1;
+            padding: 1.5rem;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(107, 70, 193, 0.15);
+        }
+
+        .category-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        input[type="radio"]:checked + .selector-buttons .category-btn::after {
+            transform: scaleX(1);
+        }
+
+        input[type="radio"]:checked + .selector-buttons .category-btn {
+            border-color: var(--primary);
+            background: rgba(107, 70, 193, 0.05);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="radio"]:checked + .selector-buttons .icon-box {
+            background: var(--secondary);
+            transform: rotateY(360deg);
+        }
+
+        .divider {
+            color: #64748b;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            padding: 0 1rem;
+        }
+
+        .file-upload {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-upload input {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .file-upload label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #f1f5f9;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .file-upload label:hover {
+            background: #e2e8f0;
+        }
+
+        .file-name {
+            margin-left: 0.5rem;
+            color: #64748b;
+        }
+
+        #chat-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: pulseGlow 2s infinite;
+            z-index: 1000;
+        }
+
+        .g-recaptcha {
+            margin: 1.5rem 0;
+        }
+
+        .success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        @keyframes bannerEntrance {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes textFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes containerFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes inputFocus {
+            from { transform: scale(1); }
+            to { transform: scale(1.02); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(107, 70, 193, 0.5); }
+            100% { box-shadow: 0 0 0 20px rgba(107, 70, 193, 0); }
+        }
+
+        .sparkle {
+            position: absolute;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 1s linear;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 2rem;
+                padding: 1.5rem;
+            }
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            .selector-buttons {
+                flex-direction: column;
+            }
+            .divider {
+                padding: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        Get Upto 25% Cashback On First Order: GET25OFF - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+     <header class="header">
+        <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="login-links">
+            <a href="#" style="color:white">🛒 Cart</a>
+
+            <a href="login.html" style="color:white">Login</a>
+            <a href="signup.html" style="color: white;">Sign Up</a>
+        </div>
+    </header>
+    
+    
+    <div class="nav-links">
+        <div class="shop-category">
+            <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+               <a href="vegetable.html">Vegetables</a>
+               <a href="fruits.html">Fruits</a>
+               <a href="dairy.html">Dairy</a>
+               <a href="beverages.html">Beverages</a>
+               <a href="meat.html">Meats</a>
+               <a href="seefood.html">Sea Food</a>
+               <a href="Backery.html">Bakery</a>
+               
+         <!-- Grocery with subcategories -->
+            <div class="dropdown-item">
+               <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
+                  <div class="sub-dropdown">
+                      <a href="Biscuits.html">Biscuits</a>
+                      <a href="snacks.html">Snacks</a>
+                      <a href="rice.html">Rice</a>
+                      <a href="cooking.html">Cooking Items</a>
+                      <a href="noodles.html">Noodles & Pasta</a>
+                      <a href="oils.html">Oils</a>
+
+                  </div>
+         </div>
+
+               <a href="beauty.html">Health & Beauty</a>
+</div>
+
+        </div>
+        <a href="homepage.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Collections</a>
+        <a href="beverages.html">Beverages</a>
+        <a href="contact_us.html">Contact</a>
+        <a href="about_us.html">About Us</a>
+    </div>
+    
+    
+    </div>
+    <div class="header-banner">
+        <div class="banner-content">
+            <h1>Connect With Us</h1>
+            <p>Your Success Journey Starts Here</p>
+        </div>
+    </div>
+
+    <div id="sparkle-container"></div>
+
+    <div id="chat-widget" onclick="openChat()">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="container">
+        <div class="info">
+            <div class="contact-card">
+                <p><i class="fas fa-map-marker-alt"></i><strong>Head Office</strong></p>
+                <p>No:148, Vauxhall Street,<br>Colombo 2, Sri Lanka.</p>
+            </div>
+
+            <div class="contact-card">
+                <p><i class="fas fa-phone"></i><strong>Contact Numbers</strong></p>
+                <p>+94 11 2303500<br>+94 11 2303555</p>
+            </div>
+
+            <div class="contact-card">
+                <p><i class="fas fa-envelope"></i><strong>Email Address</strong></p>
+                <p>purchasingLankaLkscustomercare@gmail.com</p>
+            </div>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.798511757686!2d79.84604831539394!3d6.921732295003835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2596b7d7f3f0d%3A0x6c2a3a04b0b6b1a2!2sVauxhall%20Street%2C%20Colombo!5e0!3m2!1sen!2slk!4v1623934000000!5m2!1sen!2slk" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <form id="contactForm" enctype="multipart/form-data">
+                <div class="category-selector">
+                    <input type="radio" name="category" id="comment" value="comment" checked hidden>
+                    <input type="radio" name="category" id="complaint" value="complaint" hidden>
+                    
+                    <div class="selector-buttons">
+                        <label for="comment" class="category-btn">
+                            <div class="icon-box">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <span>Comment</span>
+                        </label>
+                        
+                        <div class="divider">OR</div>
+                        
+                        <label for="complaint" class="category-btn">
+                            <div class="icon-box">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <span>Complaint</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="firstName" placeholder=" " required>
+                    <label>First Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="lastName" placeholder=" " required>
+                    <label>Last Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder=" " required>
+                    <label>Phone Number</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label>Email Address</label>
+                </div>
+
+                <div class="file-upload">
+                    <input type="file" id="attachment" accept=".pdf,.doc,.docx,.jpg,.png">
+                    <label for="attachment">
+                        <i class="fas fa-paperclip"></i>
+                        <span>Attach File (Max 5MB)</span>
+                    </label>
+                    <span class="file-name" id="fileName"></span>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder=" " required></textarea>
+                    <label>Your Message</label>
+                </div>
+
+                <div class="g-recaptcha" 
+                     data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                     data-callback="onCaptchaSuccess"
+                     data-expired-callback="onCaptchaExpired"></div>
+                <div class="error-message" id="captchaError">Please complete the CAPTCHA</div>
+
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+                <div class="success-message" id="successMessage">
+                    Message sent successfully! We'll respond within 24 hours.
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="footer_space">
+
+   </div>
+   <footer class="footer">
+        
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000" 
+            width="450" 
+            height="250" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        <div>
+            <h3 style="color:beige">Purchasing Lanka</h3>
+            <p>Purchasing Lanka Pvt Ltd</p>
+            <p>No 214,Galle Road, Matara, Sri Lanka</p>
+            <h3>+94 46 4859 453</h3>
+            <p>(Daily operating hours 8.00 am to 8.00 pm)</p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Quick Links</h3>
+            <p><a href="#">About Us</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Shipping & Refund</a></p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
+            <p><a href="#">About Us</a></p>
+            <p><a href="#">Contact Us</a></p>
+            
+        </div>
+         
+        
+    </footer>
+    <div class="bottom-bar">
+        <p>Copyright © 2025 Purchasing Lanka (Pvt) Ltd. All Rights Reserved</p>
+    </div>
+</body>
+</html>

@@ -115,8 +115,26 @@
       font-size: 22px;
       font-weight: bold;
       color: #333;
-      margin-bottom: 40px;
     }
+    
+    .btn-remove {
+     background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      width:100px;
+    }
+
+.btn-remove:hover {
+  background-color: #e03e3e;
+}
+
+      
+
   </style>
 </head>
 <body>
@@ -135,63 +153,73 @@
     <!-- Grand Total will appear here -->
   </div>
 
-  <script>
-    function loadCart() {
-      const cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
-      const cartContainer = document.getElementById('cartContainer');
-      const grandTotalContainer = document.getElementById('grandTotalContainer');
-      cartContainer.innerHTML = '';
-      grandTotalContainer.innerHTML = '';
+  <!-- Inside your script tag -->
+<script>
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    const cartContainer = document.getElementById('cartContainer');
+    const grandTotalContainer = document.getElementById('grandTotalContainer');
+    cartContainer.innerHTML = '';
+    grandTotalContainer.innerHTML = '';
 
-      if (cart.length === 0) {
-        cartContainer.innerHTML = '<div class="empty-cart">🛒 Your cart is empty.</div>';
-        return;
-      }
-
-      let grandTotal = 0;
-
-      cart.forEach((product, index) => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product';
-        const total = product.price * product.quantity;
-        grandTotal += total;
-
-        productDiv.innerHTML = `
-          <img src="${product.image}" alt="Product Image">
-          <div class="product-name">${product.name}</div>
-          <div class="price">Rs ${product.price.toFixed(2)}</div>
-          <div class="quantity-box">
-              <label>Quantity:</label>
-              <input type="number" min="1" value="${product.quantity}" onchange="updateTotal(this, ${product.price}, ${index})">
-          </div>
-          <div class="total-price">Total: Rs ${total.toFixed(2)}</div>
-          <button class="btn-update" onclick="updateCart(${index}, this)">Update</button>
-        `;
-
-        cartContainer.appendChild(productDiv);
-      });
-
-      grandTotalContainer.innerHTML = `🧾 Grand Total: Rs ${grandTotal.toFixed(2)}`;
+    if (cart.length === 0) {
+      cartContainer.innerHTML = '<div class="empty-cart">🛒 Your cart is empty.</div>';
+      return;
     }
 
-    function updateTotal(input, price, index) {
-      const quantity = parseInt(input.value);
-      const totalElement = input.parentElement.nextElementSibling;
-      const total = price * quantity;
-      totalElement.textContent = 'Total: Rs ' + total.toFixed(2);
-    }
+    let grandTotal = 0;
 
-    function updateCart(index, buttonElement) {
-      const cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
-      const quantityInput = buttonElement.parentElement.querySelector("input[type='number']");
-      cart[index].quantity = parseInt(quantityInput.value);
-      localStorage.setItem("cartProducts", JSON.stringify(cart));
-      alert("Cart updated successfully!");
-      loadCart(); // Reload cart to update grand total
-    }
+    cart.forEach((product, index) => {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product';
+      const total = product.price * product.quantity;
+      grandTotal += total;
 
-    window.onload = loadCart;
-  </script>
+      productDiv.innerHTML = `
+        <img src="${product.image}" alt="Product Image">
+        <div class="product-name">${product.name}</div>
+        <div class="price">Rs ${product.price.toFixed(2)}</div>
+        <div class="quantity-box">
+            <label>Quantity:</label>
+            <input type="number" min="1" value="${product.quantity}" onchange="updateTotal(this, ${product.price}, ${index})">
+        </div>
+        <div class="total-price">Total: Rs ${total.toFixed(2)}</div>
+        <button class="btn-update" onclick="updateCart(${index}, this)">Update</button>
+        <button class="btn-remove" onclick="removeFromCart(${index})">Remove</button>
+      `;
+
+      cartContainer.appendChild(productDiv);
+    });
+
+    grandTotalContainer.innerHTML = `🧾 Grand Total: Rs ${grandTotal.toFixed(2)}`;
+  }
+
+  function updateTotal(input, price, index) {
+    const quantity = parseInt(input.value);
+    const totalElement = input.parentElement.nextElementSibling;
+    const total = price * quantity;
+    totalElement.textContent = 'Total: Rs ' + total.toFixed(2);
+  }
+
+  function updateCart(index, buttonElement) {
+    const cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    const quantityInput = buttonElement.parentElement.querySelector("input[type='number']");
+    cart[index].quantity = parseInt(quantityInput.value);
+    localStorage.setItem("cartProducts", JSON.stringify(cart));
+    alert("Cart updated successfully!");
+    loadCart();
+  }
+
+  function removeFromCart(index) {
+    const cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    cart.splice(index, 1); // remove item at index
+    localStorage.setItem("cartProducts", JSON.stringify(cart));
+    alert("Product removed from cart.");
+    loadCart(); // refresh UI
+  }
+
+  window.onload = loadCart;
+</script>
 
 </body>
 </html>
