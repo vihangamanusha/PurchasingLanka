@@ -289,15 +289,15 @@
             <img src="images\cooking items\31.jpg".jpg alt="Coconut">
             <div class="product-name"> Knorr Maldive Fish Powder Mix 40g</div>
             <div class="price">Rs 310.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Knorr Maldive Fish Powder Mix 40g', 'images/cooking items/31.jpg', 310.00)">🛒 Add to Cart</button>
         </div>
 
 
         <div class="product">
             <img src="images\cooking items\32.jpg".jpg alt="Coconut">
-            <div class="product-name"> Ma's Jaffn Curry Paste 60g</div>
+            <div class="product-name"> Mas Jaffn Curry Paste 60g</div>
             <div class="price">Rs 280.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart(' Mas Jaffn Curry Paste 60g', 'images/cooking items/32.jpg', 280.00)">🛒 Add to Cart</button>
         </div>
 
 
@@ -305,10 +305,28 @@
             <img src="images\cooking items\33.jpg".jpg alt="Coconut">
             <div class="product-name"> Colmans Natural Coconut Water Vinger 350ml</div>
             <div class="price">Rs 240.00</div>
-            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('Colmans Natural Coconut Water Vinger 350ml', 'images/cooking items/33.jpg', 240.00)">🛒 Add to Cart</button>
         </div>
    </div>
+   
+    <!-- JavaScript to store product and redirect -->
+  <script>
+     function addToCart(name, image, price) {
+       const product = { name, image, price, quantity: 1 };
+       let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
+       // Check if product already exists
+       const existing = cart.find(item => item.name === name);
+          if (existing) {
+             existing.quantity += 1; // Increment quantity if exists
+          } else {
+             cart.push(product); // Add new product
+          }
+  
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          window.location.href = "addcart.html";
+       }
+   </script>
    <div class="footer_space">
 
    </div>
