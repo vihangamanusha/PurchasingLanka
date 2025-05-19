@@ -243,6 +243,26 @@
         </div>
 
    </div>
+
+
+    <script>
+             function addToCart(name, image, price) {
+             const product = { name, image, price, quantity: 1 };
+            let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+       // Check if product already exists
+       const existing = cart.find(item => item.name === name);
+          if (existing) {
+             existing.quantity += 1; // Increment quantity if exists
+          } else {
+             cart.push(product); // Add new product
+          }
+  
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          window.location.href = "addcart.html";
+       }
+   </script>
+
     <div class="footer_space">
 
    </div>
