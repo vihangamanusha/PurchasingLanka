@@ -234,6 +234,8 @@ body {
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-top: 40px;
+    
+    
 }
 
 .categary-items {
@@ -242,19 +244,25 @@ body {
     /*overflow-x: scroll;
     scroll-snap-type: x mandatory;*/
     padding-left: 100px;
+   
 }
 
 .categary-pic {
     width: 200px;
     height: auto;
-    border-radius: 20px;
+    border-radius: 100px;
     scroll-snap-align: start;
+    
 }
 
 .frame {
     width: 200px;
     height: 270px;
     margin-bottom: 120px;
+    background-color: #f6f2e3;
+    
+    
+    
 }
 
 /* Shop By Category Button */
@@ -262,6 +270,8 @@ body {
     position: relative;
     display: inline-block;
     z-index: 9999; /* High z-index to stay on top */
+   
+    
 }
 
 .shop-btn {
