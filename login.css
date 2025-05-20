@@ -10,7 +10,7 @@
 }
 
 /* Style the input fields */
-input[type="text"],
+input[type="email"],
 input[type="password"] {
     width: 350px;  /* Change this value to adjust width */
     height: 25px;  /* Change this value to adjust height */
@@ -44,3 +44,11 @@ tr {
     margin-left: 20px;
 }
 
+table {
+    width: 100%;
+}
+
+td {
+    width: 100%;
+    display: block; /* So td can expand fully */
+}
