@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secure Checkout | purchasingLanka.lk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <linkrel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="new.css">
+  <link rel="stylesheet" href="items.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --secondary: #4f46e5;
+      --accent: #f59e0b;
+      --text: #1f2937;
+      --success: #10b981;
+    }
+    /* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }*/
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      min-height: 100vh;
+      color: var(--text);
+    }
+    .checkout-container {
+      max-width: 880px;
+      margin: 2rem auto;
+      padding: 2.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 1.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .checkout-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .checkout-header h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .progress-tracker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+      cursor: pointer;
+      user-select: none;
+    }
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+      color: #6b7280;
+    }
+    .step.active .step-icon {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+    .progress-line {
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      right: 10%;
+      height: 4px;
+      background: #e5e7eb;
+      border-radius: 2px;
+    }
+    .progress-fill {
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      height: 4px;
+      background: var(--primary);
+      width: 33%;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      z-index: 0;
+    }
+    .form-section {
+      background: rgba(249, 250, 251, 0.7);
+      padding: 2rem;
+      border-radius: 1.25rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(209, 213, 219, 0.3);
+    }
+    .form-group {
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+    .floating-label {
+      position: absolute;
+      left: 15px;
+      top: 18px;
+      color: #6b7280;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      background: transparent;
+      padding: 0 0.25rem;
+    }
+    .form-control {
+      width: 750px;
+      padding: 1.5rem 1rem 0.75rem 3rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      background: white;
+    }
+    .form-control1 {
+      width: 100%;
+      max-width: 600px;
+      max-width:320px;
+      padding: 1.5rem 1rem 0.75rem 3rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      background: white;
+    }
+    .form-control:focus,
+    .form-control:not(:placeholder-shown) {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+    .form-control:focus + .floating-label,
+    .form-control:not(:placeholder-shown) + .floating-label {
+      transform: translateY(-10px);
+      font-size: 0.75rem;
+      color: var(--primary);
+      background: white;
+    }
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b7280;
+      z-index: 2;
+    }
+    .payment-card {
+      perspective: 1000px;
+      margin-bottom: 2rem;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 1rem;
+    }
+    .card-flipped {
+      transform: rotateY(180deg);
+    }
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background: linear-gradient(45deg, #4f46e5, #7c3aed);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(45deg, #3b82f6, #6366f1);
+    }
+    .cvv-field {
+      position: absolute;
+      right: 2rem;
+      bottom: 4rem;
+      background: white;
+      color: var(--text);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+    }
+    .form-row {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .payment-button {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.25rem 2rem;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width:100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .payment-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+    }
+    .payment-button:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    .payment-button.loading::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      animation: loading 1.5s infinite;
+      border-radius: 0.75rem;
+    }
+    @keyframes loading {
+      100% {
+        left: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      .checkout-container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+      .card-inner {
+        height: 180px;
+      }
+    }
+    .StripeElement {
+      padding: 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 0.75rem;
+      background: white;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .StripeElement--focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+    .StripeElement--invalid {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+    .StripeElement--webkit-autofill {
+      background-color: #fefde6 !important;
+    }
+    .hidden {
+      display: none !important;
+    }
+    .home-btn {
+    background-color: #6f1daa;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    
+}
+
+.home-btn:hover {
+    background-color: #511786;
+}
+
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+        Get Upto 25% Cashback On First Order: GET25OFF - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+     <header class="header">
+        <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="login-links">
+            <a href="" style="color:white">🛒 Cart</a>
+
+            <a href="login.php" style="color:white">Login</a>
+            <a href="signup.php" style="color: white;">Sign Up</a>
+        </div>
+    </header>
+    
+    
+    <div class="nav-links">
+        <div class="shop-category">
+            <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+               <a href="vegetable.html">Vegetables</a>
+               <a href="fruits.html">Fruits</a>
+               <a href="dairy.html">Dairy</a>
+               <a href="beverages.html">Beverages</a>
+               <a href="meat.html">Meats</a>
+               <a href="seefood.html">Sea Food</a>
+               <a href="Backery.html">Bakery</a>
+               
+         <!-- Grocery with subcategories -->
+            <div class="dropdown-item">
+               <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
+                  <div class="sub-dropdown">
+                      <a href="Biscuits.html">Biscuits</a>
+                      <a href="snacks.html">Snacks</a>
+                      <a href="rice.html">Rice</a>
+                      <a href="cooking.html">Cooking Items</a>
+                      <a href="noodles.html">Noodles & Pasta</a>
+                      <a href="oils.html">Oils</a>
+
+                  </div>
+         </div>
+
+               <a href="beauty.html">Health & Beauty</a>
+</div>
+
+        </div>
+        <a href="homepage.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Collections</a>
+        <a href="beverages.html">Beverages</a>
+        <a href="contact_us.html">Contact</a>
+        <a href="about_us.html">About Us</a>
+    </div>
+    
+    
+    </div>
+
+  <main class="checkout-container" aria-label="Secure Checkout">
+    <header class="checkout-header">
+      <h1>Secure Checkout</h1>
+      <nav aria-label="Checkout progress">
+        <div class="progress-tracker" role="list" aria-live="polite">
+          <div class="progress-line"></div>
+          <div class="progress-fill"></div>
+          <div class="step active" role="listitem" tabindex="0" aria-current="step" aria-label="Delivery">
+            <span class="step-icon"><i class="fa-solid fa-truck-fast"></i></span>
+            <span class="step-label">Delivery</span>
+          </div>
+          <div class="step" role="listitem" tabindex="-1" aria-label="OTP verification">
+            <span class="step-icon"><i class="fa-solid fa-key"></i></span>
+            <span class="step-label">OTP</span>
+          </div>
+          <div class="step" role="listitem" tabindex="-1" aria-label="Payment">
+            <span class="step-icon"><i class="fa-solid fa-credit-card"></i></span>
+            <span class="step-label">Payment</span>
+          </div>
+          <div class="step" role="listitem" tabindex="-1" aria-label="Confirmation">
+            <span class="step-icon"><i class="fa-solid fa-circle-check"></i></span>
+            <span class="step-label">Confirmation</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Step 1: Delivery -->
+    <section class="form-section" aria-label="Delivery details" data-step="1">
+      <form id="deliveryForm">
+        <div class="form-group">
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder=" "
+            class="form-control"
+            autocomplete="name"
+            required
+            aria-describedby="fullname-desc"
+          />
+          <label class="floating-label" for="fullname">Full Name</label>
+          <div id="fullname-desc" class="sr-only">Enter your full name for delivery</div>
+          <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+        </div>
+        <div class="form-group">
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder=" "
+            class="form-control"
+            autocomplete="tel"
+            required
+            pattern="^\+?\d{10,15}$"
+            aria-describedby="phone-desc"
+          />
+          <label class="floating-label" for="phone">Phone Number</label>
+          <div id="phone-desc" class="sr-only">Enter your phone number, digits only, may start with +</div>
+          <span class="input-icon"><i class="fa-solid fa-phone"></i></span>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="address"
+            id="address"
+            placeholder=" "
+            class="form-control"
+            autocomplete="street-address"
+            required
+            aria-describedby="address-desc"
+          />
+          <label class="floating-label" for="address">Delivery Address</label>
+          <div id="address-desc" class="sr-only">Enter your full delivery address</div>
+          <span class="input-icon"><i class="fa-solid fa-location-dot"></i></span>
+        </div>
+        <button type="button" id="nextToOtpBtn" class="payment-button">Next</button>
+      </form>
+    </section>
+
+    <!-- Step 2: OTP Verification -->
+    <section class="form-section hidden" aria-label="OTP verification" data-step="2">
+      <form id="otpForm">
+        <div class="form-group">
+          <input
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]{6}"
+            maxlength="6"
+            name="otp"
+            id="otp"
+            placeholder=" "
+            class="form-control"
+            required
+            aria-describedby="otp-desc"
+            autocomplete="one-time-code"
+          />
+          <label class="floating-label" for="otp">Enter OTP</label>
+          <div id="otp-desc" class="sr-only">Enter the 6-digit OTP sent to your phone</div>
+          <span class="input-icon"><i class="fa-solid fa-key"></i></span>
+        </div>
+        <button type="button" id="verifyOtpBtn" class="payment-button">Verify OTP</button>
+      </form>
+    </section>
+
+    <!-- Step 3: Payment -->
+    <section class="form-section hidden" aria-label="Payment details" data-step="3">
+      <form id="paymentForm">
+        <div class="form-row">
+  <div class="form-group">
+    <label for="paymentMethod" style="font-weight:600;">Select Payment Method</label>
+    <select id="paymentMethod" name="paymentMethod" class="form-control1"required>
+      <option value="card" selected>Card Payment</option>
+      <option value="cod">Cash on Delivery</option>
+    </select>
+  </div>
+</div>
+
+
+        <div id="cardDetailsWrapper">
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="text"
+                name="cardholder"
+                id="cardholder"
+                placeholder=" "
+                class="form-control1"
+                autocomplete="cc-name"
+                required
+                aria-describedby="cardholder-desc"
+              />
+              <label class="floating-label" for="cardholder">Cardholder Name</label>
+              <div id="cardholder-desc" class="sr-only">Name on the card</div>
+              <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="cardnumber"
+                id="cardnumber"
+                placeholder=" "
+                class="form-control1"
+                autocomplete="cc-number"
+                inputmode="numeric"
+                pattern="[0-9\s]{13,19}"
+                maxlength="19"
+                required
+                aria-describedby="cardnumber-desc"
+              />
+              <label class="floating-label" for="cardnumber">Card Number</label>
+              <div id="cardnumber-desc" class="sr-only">16-digit card number, digits only</div>
+              <span class="input-icon"><i class="fa-solid fa-credit-card"></i></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" >
+              <input
+                type="text"
+                name="expiry"
+                id="expiry"
+                placeholder="MM/YY"
+                class="form-control1"
+                autocomplete="cc-exp"
+                pattern="(0[1-9]|1[0-2])\/?([0-9]{2})"
+                maxlength="5"
+                required
+                aria-describedby="expiry-desc"
+              />
+              <label class="floating-label" for="expiry">Expiry Date (MM/YY)</label>
+              <div id="expiry-desc" class="sr-only">Card expiry date in MM/YY format</div>
+              <span class="input-icon"><i class="fa-solid fa-calendar"></i></span>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="cvv"
+                id="cvv"
+                placeholder=" "
+                class="form-control1"
+                autocomplete="cc-csc"
+                inputmode="numeric"
+                pattern="\d{3,4}"
+                maxlength="4"
+                required
+                aria-describedby="cvv-desc"
+              />
+              <label class="floating-label" for="cvv">CVV</label>
+              <div id="cvv-desc" class="sr-only">Card security code</div>
+              <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="payButton" class="payment-button">Pay Now</button>
+      </form>
+    </section>
+
+    <!-- Step 4: Confirmation -->
+    <section class="form-section hidden" aria-label="Order confirmation" data-step="4">
+      <h2 style="color: var(--success); font-weight: 700; text-align: center;">
+        <i class="fa-solid fa-circle-check"></i> Thank you! Your order is confirmed.
+      </h2>
+      <p style="text-align: center; font-size: 1.125rem; margin-top: 1rem;">
+        You will receive a confirmation SMS shortly.
+      </p>
+
+      <center><button class="home-btn" onclick="window.location.href='homepage.html'">Go to Home</button></center>
+
+    </section>
+  </main>
+<script>
+  // Delivery step submit
+  document.getElementById('nextToOtpBtn').addEventListener('click', async () => {
+    const fullname = document.getElementById('fullname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+
+    if (!fullname || !phone || !address) {
+      alert('Please fill in all delivery details.');
+      return;
+    }
+
+    try {
+      const response = await fetch('delivery.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ fullname, phone, address })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Move to OTP step
+        document.querySelector('[data-step="1"]').classList.add('hidden');
+        document.querySelector('[data-step="2"]').classList.remove('hidden');
+      } else {
+        alert('Error: ' + (result.message || 'Failed to save delivery info'));
+      }
+    } catch (err) {
+      alert('Network error: ' + err.message);
+    }
+  });
+
+  // OTP verification (for demo accept 123456)
+  document.getElementById('verifyOtpBtn').addEventListener('click', () => {
+    const otp = document.getElementById('otp').value.trim();
+    if (otp === '123456') {
+      // Move to payment step
+      document.querySelector('[data-step="2"]').classList.add('hidden');
+      document.querySelector('[data-step="3"]').classList.remove('hidden');
+    } else {
+      alert('Invalid OTP. Please enter 123456 for demo.');
+    }
+  });
+
+  // Payment submission
+  document.getElementById('payButton').addEventListener('click', async () => {
+    const paymentMethod = document.getElementById('paymentMethod').value;
+
+    let paymentData = { paymentMethod };
+
+    if (paymentMethod === 'card') {
+      const cardholder = document.getElementById('cardholder').value.trim();
+      const cardnumber = document.getElementById('cardnumber').value.trim();
+      const expiry = document.getElementById('expiry').value.trim();
+      const cvv = document.getElementById('cvv').value.trim();
+
+      if (!cardholder || !cardnumber || !expiry || !cvv) {
+        alert('Please fill in all card details.');
+        return;
+      }
+
+      paymentData = { ...paymentData, cardholder, cardnumber, expiry, cvv };
+    }
+
+    try {
+      const response = await fetch('payment.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(paymentData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Show confirmation
+        document.querySelector('[data-step="3"]').classList.add('hidden');
+        document.querySelector('[data-step="4"]').classList.remove('hidden');
+      } else {
+        alert('Payment failed: ' + (result.message || 'Unknown error'));
+      }
+    } catch (err) {
+      alert('Network error: ' + err.message);
+    }
+  });
+
+  // Show/hide card details based on payment method
+  document.getElementById('paymentMethod').addEventListener('change', (e) => {
+    const cardWrapper = document.getElementById('cardDetailsWrapper');
+    if (e.target.value === 'card') {
+      cardWrapper.style.display = 'block';
+      cardWrapper.querySelectorAll('input').forEach(input => input.required = true);
+    } else {
+      cardWrapper.style.display = 'none';
+      cardWrapper.querySelectorAll('input').forEach(input => input.required = false);
+    }
+  });
+
+  // Initialize card detail visibility
+  document.getElementById('paymentMethod').dispatchEvent(new Event('change'));
+</script>
+
+
+  <div class="footer_space">
+
+   </div>
+   <footer class="footer">
+        
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000" 
+            width="450" 
+            height="250" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        <div>
+            <h3 style="color:beige">Purchasing Lanka</h3>
+            <p>Purchasing Lanka Pvt Ltd</p>
+            <p>No 214,Galle Road, Matara, Sri Lanka</p>
+            <h3>+94 46 4859 453</h3>
+            <p>(Daily operating hours 8.00 am to 8.00 pm)</p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Quick Links</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Shipping & Refund</a></p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">Contact Us</a></p>
+            
+        </div>
+         
+        
+    </footer>
+     <div class="bottom-bar">
+        <p>Copyright © 2025 Purchasing Lanka (Pvt) Ltd. All Rights Reserved</p>
+    </div>
+</body>
+</html>

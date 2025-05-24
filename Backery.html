@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PurchasingLanka.lk</title>
+    <link rel="icon" href="images/homepages images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
+    <!-- Ad Modal CSS -->
+    <style>
+        .ad-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .ad-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+        .ad-content h2 {
+            margin-bottom: 10px;
+        }
+        .ad-content button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ad-content button:hover {
+            background: #218838;
+        }
+    </style>
+
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+    <link rel="stylesheet" href="items.css">
+     <link rel="stylesheet" href="new.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+   
+    <div class="top-bar">
+        Get Upto 25% Cashback On First Order: GET25OFF - 
+        <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+
+     <header class="header">
+        <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="login-links">
+            <a href="addcart.html" style="color:white">🛒 Cart</a>
+
+            <a href="login.php" style="color:white">Login</a>
+            <a href="signup.php" style="color: white;">Sign Up</a>
+        </div>
+    </header>
+
+    
+    <div class="nav-links">
+        <div class="shop-category">
+            <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+               <a href="vegetable.html">Vegetables</a>
+               <a href="fruits.html">Fruits</a>
+               <a href="dairy.html">Dairy</a>
+               <a href="beverages.html">Beverages</a>
+               <a href="meat.html">Meats</a>
+               <a href="seefood.html">Sea Food</a>
+               <a href="Backery.html">Bakery</a>
+               
+         <!-- Grocery with subcategories -->
+            <div class="dropdown-item">
+               <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
+                  <div class="sub-dropdown">
+                      <a href="Biscuits.html">Biscuits</a>
+                      <a href="snacks.html">Snacks</a>
+                      <a href="rice.html">Rice</a>
+                      <a href="cooking.html">Cooking Items</a>
+                      <a href="noodles.html">Noodles & Pasta</a>
+                      <a href="oils.html">Oils</a>
+
+                  </div>
+         </div>
+
+               <a href="beauty.html">Health & Beauty</a>
+</div>
+
+        </div>
+        <a href="homepage.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Collections</a>
+        <a href="beverages.html">Beverages</a>
+        <a href="contact_us.html">Contact</a>
+        <a href="about_us.html">About Us</a>
+    </div>
+
+ <img src="images/homepages images/bakeryback.png" style="width:1513px; height: 500px;">
+
+     <div class="section-title">
+        <hr>
+              <span><strong>Backery Items</strong></span>
+        <hr>
+    </div>
+
+     <div class="container">
+        <div class="product">
+            <img src="images\backery images\1.jpg" alt="Big Onions">
+            <div class="product-name">Tiara Chocalte Layer Cake 310G</div>
+            <div class="price">Rs 550.00</div>
+            <button class="add-to-cart" onclick="addToCart('Tiara Chocalte Layer Cake 310G', 'images/backery images/1.jpg', 550.00)">🛒 Add to Cart</button>
+        </div>
+    
+        <div class="product">
+    <img src="images/backery images/2.jpg" alt="Coconut">
+    <div class="product-name">Little Lion Chocalate Roll 200G</div>
+    <div class="price">Rs 520.00</div>
+    <button class="add-to-cart" onclick="addToCart('Little Lion Chocalate Roll 200G', 'images/backery images/2.jpg', 520.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/3.jpg" alt="Coconut">
+    <div class="product-name">Little Lion Madeira Cake 320G</div>
+    <div class="price">Rs 580.00</div>
+    <button class="add-to-cart" onclick="addToCart('Little Lion Madeira Cake 320G', 'images/backery images/3.jpg', 580.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/4.jpg" alt="Coconut">
+    <div class="product-name">Tiara Chocalate Swiss Roll 200G</div>
+    <div class="price">Rs 380.00</div>
+    <button class="add-to-cart" onclick="addToCart('Tiara Chocalate Swiss Roll 200G', 'images/backery images/4.jpg', 380.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/5.jpg" alt="Coconut">
+    <div class="product-name">Little Lion Soft Log Vanila Flavoured 200G</div>
+    <div class="price">Rs 390.00</div>
+    <button class="add-to-cart" onclick="addToCart('Little Lion Soft Log Vanila Flavoured 200G', 'images/backery images/5.jpg', 390.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/6.jpg" alt="Coconut">
+    <div class="product-name">Finagle Sandwich Bread 500G</div>
+    <div class="price">Rs 495.00</div>
+    <button class="add-to-cart" onclick="addToCart('Finagle Sandwich Bread 500G', 'images/backery images/6.jpg', 495.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/7.jpg" alt="Coconut">
+    <div class="product-name">Tiara Rollo Cake 25G</div>
+    <div class="price">Rs 70.00</div>
+    <button class="add-to-cart" onclick="addToCart('Tiara Rollo Cake 25G', 'images/backery images/7.jpg', 70.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/8.jpg" alt="Coconut">
+    <div class="product-name">Finagle Sweet Bread 240G</div>
+    <div class="price">Rs 295.00</div>
+    <button class="add-to-cart" onclick="addToCart('Finagle Sweet Bread 240G', 'images/backery images/8.jpg', 295.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/9.jpg" alt="Coconut">
+    <div class="product-name">Prima Chocalte Swiss Roll 225G</div>
+    <div class="price">Rs 690.00</div>
+    <button class="add-to-cart" onclick="addToCart('Prima Chocalte Swiss Roll 225G', 'images/backery images/9.jpg', 690.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/10.jpg" alt="Coconut">
+    <div class="product-name">Revello Brownie 200G</div>
+    <div class="price">Rs 700.00</div>
+    <button class="add-to-cart" onclick="addToCart('Revello Brownie 200G', 'images/backery images/10.jpg', 700.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/11.jpg" alt="Coconut">
+    <div class="product-name">Panderia Sandwich Bread 450G</div>
+    <div class="price">Rs 385.00</div>
+    <button class="add-to-cart" onclick="addToCart('Panderia Sandwich Bread 450G', 'images/backery images/11.jpg', 385.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/12.jpg" alt="Coconut">
+    <div class="product-name">Kisses Large Pack</div>
+    <div class="price">Rs 340.00</div>
+    <button class="add-to-cart" onclick="addToCart('Kisses Large Pack', 'images/backery images/12.jpg', 340.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/13.jpg" alt="Coconut">
+    <div class="product-name">Marshmallow Pack</div>
+    <div class="price">Rs 250.00</div>
+    <button class="add-to-cart" onclick="addToCart('Marshmallow Pack', 'images/backery images/13.jpg', 250.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/14.jpg" alt="Coconut">
+    <div class="product-name">Chelsea Bun</div>
+    <div class="price">Rs 265.00</div>
+    <button class="add-to-cart" onclick="addToCart('Chelsea Bun', 'images/backery images/14.jpg', 265.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/15.jpg" alt="Coconut">
+    <div class="product-name">Doughnut-Cashew Chocalte Topping</div>
+    <div class="price">Rs 150.00</div>
+    <button class="add-to-cart" onclick="addToCart('Doughnut-Cashew Chocalte Topping', 'images/backery images/15.jpg', 150.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/16.jpg" alt="Coconut">
+    <div class="product-name">Littel Lion Date Cake 375G</div>
+    <div class="price">Rs 690.00</div>
+    <button class="add-to-cart" onclick="addToCart('Littel Lion Date Cake 375G', 'images/backery images/16.jpg', 690.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/17.jpg" alt="Coconut">
+    <div class="product-name">Littel Lion Soft Log Chocalate Cake 325G</div>
+    <div class="price">Rs 595.00</div>
+    <button class="add-to-cart" onclick="addToCart('Littel Lion Soft Log Chocalate Cake 325G', 'images/backery images/17.jpg', 595.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/18.jpg" alt="Coconut">
+    <div class="product-name">Littel Lion Fruit & Nut Cake 350G</div>
+    <div class="price">Rs 680.00</div>
+    <button class="add-to-cart" onclick="addToCart('Littel Lion Fruit & Nut Cake 350G', 'images/backery images/18.jpg', 680.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/19.jpg" alt="Coconut">
+    <div class="product-name">Littel Lion Strawberry Flavoures Sponge Roll 200G</div>
+    <div class="price">Rs 390.00</div>
+    <button class="add-to-cart" onclick="addToCart('Littel Lion Strawberry Flavoures Sponge Roll 200G', 'images/backery images/19.jpg', 390.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/backery images/20.jpg" alt="Coconut">
+    <div class="product-name">Panaderia Giant Hamburger Buns</div>
+    <div class="price">Rs 170.00</div>
+    <button class="add-to-cart" onclick="addToCart('Panaderia Giant Hamburger Buns', 'images/backery images/20.jpg',170)">🛒 Add to Cart</button>
+</div>    
+        
+   </div>
+
+   <script>
+             function addToCart(name, image, price) {
+             const product = { name, image, price, quantity: 1 };
+            let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+       // Check if product already exists
+       const existing = cart.find(item => item.name === name);
+          if (existing) {
+             existing.quantity += 1; // Increment quantity if exists
+          } else {
+             cart.push(product); // Add new product
+          }
+  
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          window.location.href = "addcart.html";
+       }
+   </script>
+
+ <div class="footer_space">
+
+   </div>
+
+<footer class="footer">
+        
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000" 
+            width="450" 
+            height="250" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        <div>
+            <h3 style="color:beige">Purchasing Lanka</h3>
+            <p>Purchasing Lanka Pvt Ltd</p>
+            <p>No 214,Galle Road, Matara, Sri Lanka</p>
+            <h3>+94 46 4859 453</h3>
+            <p>(Daily operating hours 8.00 am to 8.00 pm)</p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Quick Links</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Shipping & Refund</a></p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">Contact Us</a></p>
+            
+        </div>
+         
+        
+    </footer>
+
+    <!-- 🔔 JS to auto-close the ad -->
+   <script>
+    // Initially hide the ad modal
+    document.getElementById('adModal').style.display = 'none';
+
+    // Show ad after 2 minutes (120000 milliseconds)
+    setTimeout(() => {
+        document.getElementById('adModal').style.display = 'flex';
+    }, 2 * 60 * 100); // 2 minutes
+
+    function closeAd() {
+      document.getElementById('adModal').style.display = 'none';
+    }
+
+    // Slider Logic
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    }
+  </script>
+    <div class="bottom-bar">
+        <p>Copyright © 2025 Purchasing Lanka (Pvt) Ltd. All Rights Reserved</p>
+    </div>
+</body>
+</html>

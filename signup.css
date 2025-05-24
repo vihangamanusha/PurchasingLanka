@@ -1,0 +1,60 @@
+/*signup page*/
+/* Reset default styles */
+body {
+    
+    background-color: rgb(229, 232, 232);
+    
+}
+
+/* Container styling */
+.signup-container {
+    background: white;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    height:520px;
+    text-align: center;
+    padding-left: 30px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 350px;  /* Change this value to adjust width */
+    height: 25px;  /* Change this value to adjust height */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+
+input[type="email"]{
+    width: 730px;  /* Change this value to adjust width */
+    height: 25px;  /* Change this value to adjust height */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+
+button {
+    width: 750px;
+    height: 40px;
+    background-color: #6f1daa;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Change button color on hover */
+button:hover {
+    background-color: #551583;
+}
+
+.signup-container table td {
+    padding-bottom: 15px; /* Adjust the value as needed */
+}

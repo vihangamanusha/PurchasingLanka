@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PurchasingLanka.lk</title>
+  <link rel="icon" href="images/homepages images/logo.png" type="image/png" />
+
+  <!-- Ad Modal CSS -->
+  <style>
+    .ad-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .ad-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .ad-content h2 {
+      margin-bottom: 10px;
+    }
+    .ad-content button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .ad-content button:hover {
+      background: #218838;
+    }
+
+    .random-vegetables-container,
+    .random-fruits-container,
+    .random-beverages-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 60px;
+       
+    }
+
+    .random-vegetables-container .product,
+    .random-fruits-container .product,
+    .random-beverages-container .product {
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 180px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #eee;
+    }
+
+    .random-vegetables-container .product img,
+    .random-fruits-container .product img,
+    .random-beverages-container .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .random-vegetables-container .product-name,
+    .random-fruits-container .product-name,
+    .random-beverages-container .product-name {
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .random-vegetables-container .price,
+    .random-fruits-container .price,
+    .random-beverages-container .price {
+      color: green;
+      margin-bottom: 10px;
+    }
+
+    .random-vegetables-container button,
+    .random-fruits-container button,
+    .random-beverages-container button {
+      background-color: white;
+              color: #555;
+              border: none;
+              border-radius: 25px;
+              padding: 10px 20px;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+              font-weight: 500;
+              font-size: 16px;
+              margin-left: 30px;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+              transition: all 0.3s ease
+    }
+
+    .random-vegetables-container button:hover,
+    .random-fruits-container button:hover,
+    .random-beverages-container button:hover {
+      background-color: #62d75e;
+            transform: translateY(-2px);
+            color:white;
+    }
+
+    .search-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.search-popup-content {
+  background: white;
+  width: 80%;
+  max-width: 370px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search-results .product {
+  flex: 1 1 calc(45% - 20px);
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="new.css" />
+</head>
+
+<body>
+<div id="searchPopup" class="search-popup">
+  <div class="search-popup-content">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <h3>Search Results</h3>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</div>
+
+
+<script>
+  function closePopup() {
+    document.getElementById("searchPopup").style.display = "none";
+  }
+</script>
+
+  <!-- 🔔 Advertisement Modal -->
+  <div class="ad-modal" id="adModal" style="display:none;">
+    <div class="ad-content">
+      <h2>🎉 Limited Time Offer!</h2>
+      <img src="images/homepages images/advert.jpg" style="height: 400px; width: 300px;" alt="Advertisement" />
+      <p>Get 20% off your first purchase.</p>
+      <button onclick="closeAd()">Continue</button>
+    </div>
+  </div>
+
+  <div class="top-bar">
+    Get Upto 25% Cashback On First Order: GET25OFF - 
+    <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+  </div>
+
+  <header class="header">
+    <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search" />
+      <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="login-links">
+      <a href="addcart.html" style="color:white">🛒 Cart</a>
+      <a href="login.php" style="color:white">Login</a>
+      <a href="signup.php" style="color: white;">Sign Up</a>
+    </div>
+  </header>
+
+  <div class="nav-links">
+    <div class="shop-category">
+      <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
+      <div class="dropdown-content">
+        <a href="vegetable.html">Vegetables</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="dairy.html">Dairy</a>
+        <a href="beverages.html">Beverages</a>
+        <a href="meat.html">Meats</a>
+        <a href="seefood.html">Sea Food</a>
+        <a href="Backery.html">Bakery</a>
+
+        <!-- Grocery with subcategories -->
+        <div class="dropdown-item">
+          <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
+          <div class="sub-dropdown">
+            <a href="Biscuits.html">Biscuits</a>
+            <a href="snacks.html">Snacks</a>
+            <a href="rice.html">Rice</a>
+            <a href="cooking.html">Cooking Items</a>
+            <a href="noodles.html">Noodles & Pasta</a>
+            <a href="oils.html">Oils</a>
+          </div>
+        </div>
+
+        <a href="beauty.html">Health & Beauty</a>
+      </div>
+    </div>
+    <a href="homepage.html">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Collections</a>
+    <a href="beverages.html">Beverages</a>
+    <a href="contact_us.html">Contact</a>
+    <a href="about_us.html">About Us</a>
+  </div>
+
+  <div class="image-slider">
+    <div class="slides fade">
+      <img src="images/homepages images/2_.png" alt="Slide 1" />
+    </div>
+    <div class="slides fade">
+      <img src="images/homepages images/1.png" alt="Slide 2" />
+    </div>
+    <div class="slides fade">
+      <img src="images/homepages images/3.jpg" alt="Slide 3" />
+    </div>
+    <div class="slides fade">
+      <img src="images/homepages images/4.png" alt="Slide 4" />
+    </div>
+  </div>
+
+  <div class="shop-by-categary">
+    <p style="font-size: 28px;">Shop By Categories</p>
+    <div class="categary-items">
+      <a href="vegetable.html">
+        <button class="shopbtn">
+          <div class="frame">
+            <img src="images/homepages images/Tomato.png" class="categary-pic" />
+            <p style="font-size: 20px;">Vegees</p>
+          </div>
+        </button>
+      </a>
+      <a href="fruits.html">
+        <button class="shopbtn">
+          <div class="frame">
+            <img src="images/homepages images/dragon.jpg" class="categary-pic" />
+            <p style="font-size: 20px;">Fruits</p>
+          </div>
+        </button>
+      </a>
+      <a href="snacks.html">
+        <button class="shopbtn">
+          <div class="frame">
+            <img src="images/homepages images/sancks.jpeg" class="categary-pic" />
+            <p style="font-size: 20px;">Snacks</p>
+          </div>
+        </button>
+      </a>
+      <a href="beverages.html">
+        <button class="shopbtn">
+          <div class="frame">
+            <img src="images/homepages images/beverages.jpeg" class="categary-pic" />
+            <p style="font-size: 20px;">Beverages</p>
+          </div>
+        </button>
+      </a>
+      <a href="meat.html">
+        <button class="shopbtn">
+          <div class="frame">
+            <img src="images/homepages images/meet.avif" class="categary-pic" />
+            <p style="font-size: 20px;">Meat</p>
+          </div>
+        </button>
+      </a>
+      <a href="Backery.html">
+        <button class="shopbtn">
+          <div class="frame">
+            <img src="images/homepages images/bread.jpeg" class="categary-pic" />
+            <p style="font-size: 20px;">Backery</p>
+          </div>
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <section id="random-veggies-section">
+    <center><h2>Vegetables</h2></center>
+    <div class="random-vegetables-container"></div>
+  </section>
+
+  <section id="random-fruits-section">
+    <center><h2>Fruits</h2></center>
+    <div class="random-fruits-container"></div>
+  </section>
+
+  <section id="random-beverages-section">
+    <center><h2>Beverages</h2></center>
+    <div class="random-beverages-container"></div>
+  </section>
+
+  <script>
+    // --- Advertisement Modal ---
+    function showAd() {
+      document.getElementById("adModal").style.display = "flex";
+    }
+    function closeAd() {
+      document.getElementById("adModal").style.display = "none";
+    }
+    // Show ad on page load after a short delay
+    window.onload = function () {
+      setTimeout(showAd, 7000);
+      showRandomVeggies();
+      showRandomFruits();
+      showRandomBeverages();
+      showSlides();
+    };
+
+    // --- Search Functionality ---
+    function performSearch() {
+      let query = document.getElementById("searchInput").value.trim().toLowerCase();
+      if (!query) {
+        alert("Please enter a search term.");
+        return;
+      }
+      // Try searching across all products in all categories (simplified)
+      // This example searches the veggies only, you can extend this.
+      alert("Searching for: " + query + " (Demo alert)");
+      // Implement actual search logic here or redirect to search results page.
+    }
+
+    // --- Image Slider ---
+    let slideIndex = 0;
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("slides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    // --- Show Random Vegetables ---
+    function showRandomVeggies() {
+      const veggies = [
+        { name: "Lime", price: "Rs. 480.00", img: "images/vegetables_image/lime.jpg" },
+        { name: "Beans", price: "Rs. 195.00", img: "images/vegetables_image/beans.jpg" },
+        { name: "Pototos", price: "Rs. 195.00", img: "images/vegetables_image/pototes.jpg" },
+        { name: "Amberella", price: "Rs. 780.00", img: "images/vegetables_image/amberella.jpg" },
+        { name: "Big-Onion", price: "Rs. 150.00", img: "images/vegetables_image/onion.jpg" },
+        { name: "Coconut", price: "Rs. 240.00", img: "images/vegetables_image/cocnut.jpg" },
+        { name: "Red BellPepeer", price: "Rs. 1290.00", img: "images/vegetables_image/rbellpepper.jpg" },
+        { name: "Beans", price: "Rs. 195.00", img: "images/vegetables_image/beans.jpg" },
+        { name: "Knol Khol", price: "Rs. 195.00", img: "images/vegetables_image/knolkhol.jpg" },
+        { name: "cabbage", price: "Rs. 690.00", img: "images/vegetables_image/cabbage.jpg" },
+        { name: "Leeks", price: "Rs. 240.00", img: "images/vegetables_image/leeks.jpg" },
+        { name: "Ladies Fingers", price: "Rs. 195.00", img: "images/vegetables_image/ladiesfingers.jpg" },
+        { name: "Green Chilies", price: "Rs. 310.00", img: "images/vegetables_image/greenchilies.jpg" },
+        { name: "Garlic", price: "Rs. 910.00", img: "images/vegetables_image/garlic.jpg" },
+        { name: "Dambala", price: "Rs. 550.00", img: "images/vegetables_image/dambala.jpg" },
+        { name: "Beet Root", price: "Rs. 195.00", img: "images/vegetables_image/beetroot.jpg" }
+       
+      ];
+      const container = document.querySelector(".random-vegetables-container");
+      container.innerHTML = "";
+      const selected = getRandomItems(veggies, 5);
+      selected.forEach(item => {
+        container.innerHTML += `
+          <div class="product">
+            <img src="${item.img}" alt="${item.name}" />
+            <div class="product-name">${item.name}</div>
+            <div class="price">${item.price}</div>
+            <button onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">Add To Cart</button>
+          </div>`;
+      });
+    }
+
+    // --- Show Random Fruits ---
+    function showRandomFruits() {
+      const fruits = [
+        { name: "Grapes-Red", price: "Rs. 2800.00", img: "images/fruits_images/2.jpg" },
+        { name: "Apple -Red", price: "Rs. 1950.00", img: "images/fruits_images/3.jpg" },
+        { name: "Delum (Local)", price: "Rs. 2250.00", img: "images/fruits_images/6.jpg" },
+        { name: "Green Pears", price: "Rs. 1650.00", img: "images/fruits_images/8.jpg" },
+        { name: "Water Melon", price: "Rs. 145.00", img: "images/fruits_images/9.jpg" },
+        { name: "Avacado", price: "Rs. 820.00", img: "images/fruits_images/11.jpg" }
+      ];
+      const container = document.querySelector(".random-fruits-container");
+      container.innerHTML = "";
+      const selected = getRandomItems(fruits, 5);
+      selected.forEach(item => {
+        container.innerHTML += `
+          <div class="product">
+            <img src="${item.img}" alt="${item.name}" />
+            <div class="product-name">${item.name}</div>
+            <div class="price">${item.price}</div>
+            <button onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">Add To Cart</button>
+          </div>`;
+      });
+    }
+
+    // --- Show Random Beverages ---
+    function showRandomBeverages() {
+      const beverages = [
+        { name: "Elephant House Cream Soda Bottle 1.5L", price: "Rs. 400.00", img: "images/beverages_images/2.jpg" },
+        { name: "Coca Cola Pet Bottle 1.5L", price: "Rs. 400.00", img: "images/beverages_images/3jpg.jpg" },
+        { name: "Pepsi Pet Bottle 1L", price: "Rs. 300.00", img: "images/beverages_images/8.jpg" },
+        { name: "Elephant House Soda Pet Bottle 1L", price: "Rs. 180.00", img: "images/beverages_images/11.jpg" },
+        { name: "Elephant House Ginger Beer Pet Bottle 1L", price: "Rs. 300.00", img: "images/beverages_images/12.jpg" },
+        { name: "Sprite Pet Bottle 1.5L", price: "Rs. 400.00", img: "images/beverages_images/14.jpg" }
+      ];
+      const container = document.querySelector(".random-beverages-container");
+      container.innerHTML = "";
+      const selected = getRandomItems(beverages, 5);
+      selected.forEach(item => {
+        container.innerHTML += `
+          <div class="product">
+            <img src="${item.img}" alt="${item.name}" />
+            <div class="product-name">${item.name}</div>
+            <div class="price">${item.price}</div>
+            <button onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">Add To Cart</button>
+          </div>`;
+      });
+    }
+
+    // Utility function to get n random items from an array
+    function getRandomItems(arr, n) {
+      const shuffled = arr.slice().sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, n);
+    }
+
+    // Dummy add to cart function (you can extend this)
+    function addToCart(name, price, img) {
+      alert(`Added to cart:\n${name} - ${price}`);
+      // Implement your actual cart logic here, e.g., localStorage or backend API calls
+    }
+  </script>
+  
+ <script>
+function performSearch() {
+  let query = document.getElementById("searchInput").value.trim().toLowerCase();
+  let allProducts = document.querySelectorAll('.product');
+  let resultContainer = document.getElementById("searchResults");
+  resultContainer.innerHTML = ""; // Clear previous
+
+  let matches = Array.from(allProducts).filter(product => {
+    let name = product.querySelector('.product-name').textContent.toLowerCase();
+    return name.includes(query);
+  });
+
+  if (matches.length === 0) {
+    resultContainer.innerHTML = "<p>No products found.</p>";
+  } else {
+    matches.forEach(product => {
+      let clone = product.cloneNode(true);
+
+      // Find the "Add to Cart" button in the clone and attach a new click listener
+      let addButton = clone.querySelector('.add-to-cart');
+      if (addButton) {
+        addButton.addEventListener('click', () => {
+          closePopup(); // Close popup after adding to cart
+        });
+      }
+
+      resultContainer.appendChild(clone);
+    });
+  }
+
+  document.getElementById("searchPopup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("searchPopup").style.display = "none";
+}
+</script>
+
+
+<script>
+  function closePopup() {
+    document.getElementById("searchPopup").style.display = "none";
+  }
+
+  // Close popup if user clicks outside the content
+  window.addEventListener("click", function(event) {
+    const popup = document.getElementById("searchPopup");
+    const content = document.querySelector(".search-popup-content");
+    if (event.target === popup && !content.contains(event.target)) {
+      closePopup();
+    }
+  });
+</script>
+
+
+ <script>
+function performSearch() {
+  let query = document.getElementById("searchInput").value.trim().toLowerCase();
+  let allProducts = document.querySelectorAll('.product');
+  let resultContainer = document.getElementById("searchResults");
+  resultContainer.innerHTML = ""; // Clear previous
+
+  let matches = Array.from(allProducts).filter(product => {
+    let name = product.querySelector('.product-name').textContent.toLowerCase();
+    return name.includes(query);
+  });
+
+  if (matches.length === 0) {
+    resultContainer.innerHTML = "<p>No products found.</p>";
+  } else {
+    matches.forEach(product => {
+      let clone = product.cloneNode(true);
+      resultContainer.appendChild(clone);
+    });
+  }
+
+  document.getElementById("searchPopup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("searchPopup").style.display = "none";
+}
+</script>
+
+
+   <div class="footer_space">
+
+   </div>
+   <footer class="footer">
+        
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000" 
+            width="450" 
+            height="250" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        <div>
+            <h3 style="color:beige">Purchasing Lanka</h3>
+            <p>Purchasing Lanka Pvt Ltd</p>
+            <p>No 214,Galle Road, Matara, Sri Lanka</p>
+            <h3>+94 46 4859 453</h3>
+            <p>(Daily operating hours 8.00 am to 8.00 pm)</p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Quick Links</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Shipping & Refund</a></p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">Contact Us</a></p>
+            
+        </div>
+         
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PurchasingLanka.lk</title>
+    <link rel="icon" href="images/homepages images/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="items.css">
+    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+       
+</head>
+<body>
+    <div class="top-bar">
+        Get Upto 25% Cashback On First Order: GET25OFF - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+    <header class="header">
+        <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="login-links">
+            <a href="addcart.html" style="color:white">🛒 Cart</a>
+
+            <a href="login.php" style="color:white">Login</a>
+            <a href="signup.php" style="color: white;">Sign Up</a>
+        </div>
+    </header>
+    
+    
+    <div class="nav-links">
+        <div class="shop-category">
+            <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+               <a href="vegetable.html">Vegetables</a>
+               <a href="fruits.html">Fruits</a>
+               <a href="dairy.html">Dairy</a>
+               <a href="beverages.html">Beverages</a>
+               <a href="meat.html">Meats</a>
+               <a href="seefood.html">Sea Food</a>
+               <a href="Backery.html">Bakery</a>
+               
+         <!-- Grocery with subcategories -->
+            <div class="dropdown-item">
+               <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
+                  <div class="sub-dropdown">
+                      <a href="Biscuits.html">Biscuits</a>
+                      <a href="snacks.html">Snacks</a>
+                      <a href="rice.html">Rice</a>
+                      <a href="cooking.html">Cooking Items</a>
+                      <a href="noodles.html">Noodles & Pasta</a>
+                      <a href="oils.html">Oils</a>
+
+                  </div>
+         </div>
+
+               <a href="beauty.html">Health & Beauty</a>
+</div>
+
+        </div>
+        <a href="homepage.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Collections</a>
+        <a href="beverages.html">Beverages</a>
+        <a href="contact_us.html">Contact</a>
+        <a href="about_us.html">About Us</a>
+    </div>
+    
+    </div>
+
+    <img src="images/homepages images/meetbackground.png" style="width:1513px; height: 500px;">
+
+    <div class="section-title">
+        <hr>
+              <span><strong>Meat</strong></span>
+        <hr>
+    </div>
+
+    <div class="container">
+        <div class="product">
+            <img src="images\meat images\1.jpg" alt="Big Onions">
+            <div class="product-name">Prima Chicken Meat Balls 500G</div>
+            <div class="price">Rs 890.00</div>
+            <button class="add-to-cart" onclick="addToCart('>Prima Chicken Meat Balls 500G', 'images/meat images/1.jpg', 890.00)">🛒 Add to Cart</button>
+        </div>
+    
+        <div class="product">
+  <img src="images/meat images/2.jpg" alt="Goldi Supreme Chicken Sausages">
+  <div class="product-name">Goldi Supreme Chicken Sausages 500G</div>
+  <div class="price">Rs 1160.00</div>
+  <button class="add-to-cart" onclick="addToCart('Goldi Supreme Chicken Sausages 500G', 'images/meat images/2.jpg', 1160.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/3.jpg" alt="Bairaha Chicken Sausages">
+  <div class="product-name">Bairaha Chicken Sausages 300G</div>
+  <div class="price">Rs 700.00</div>
+  <button class="add-to-cart" onclick="addToCart('Bairaha Chicken Sausages 300G', 'images/meat images/3.jpg', 700.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/4.jpg" alt="Cresent Crispy Chicken Bacon">
+  <div class="product-name">Cresent Crispy Chicken Bacon 150G</div>
+  <div class="price">Rs 615.00</div>
+  <button class="add-to-cart" onclick="addToCart('Cresent Crispy Chicken Bacon 150G', 'images/meat images/4.jpg', 615.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/5.jpg" alt="Prima Whole Chicken">
+  <div class="product-name">Prima Whole Chicken 1KG</div>
+  <div class="price">Rs 1328.00</div>
+  <button class="add-to-cart" onclick="addToCart('Prima Whole Chicken 1KG', 'images/meat images/5.jpg', 1328.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/6.jpg" alt="Kells Chicken Sausages">
+  <div class="product-name">Kells Chicken Sausages 500G</div>
+  <div class="price">Rs 1150.00</div>
+  <button class="add-to-cart" onclick="addToCart('Kells Chicken Sausages 500G', 'images/meat images/6.jpg', 1150.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/7.jpg" alt="Bairaha Whole Chicken">
+  <div class="product-name">Bairaha Whole Chicken 1KG</div>
+  <div class="price">Rs 1329.00</div>
+  <button class="add-to-cart" onclick="addToCart('Bairaha Whole Chicken 1KG', 'images/meat images/7.jpg', 1329.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/8.jpg" alt="Goldi Chicken Meatballs">
+  <div class="product-name">Goldi Chicken Meatballs 500G</div>
+  <div class="price">Rs 935.00</div>
+  <button class="add-to-cart" onclick="addToCart('Goldi Chicken Meatballs 500G', 'images/meat images/8.jpg', 935.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/9.jpg" alt="Crysbro Chicken-Home Pack">
+  <div class="product-name">Crysbro Chicken-Home Pack 400G</div>
+  <div class="price">Rs 460.00</div>
+  <button class="add-to-cart" onclick="addToCart('Crysbro Chicken-Home Pack 400G', 'images/meat images/9.jpg', 460.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="images/meat images/10.jpg" alt="Krest Chicken Sausages">
+  <div class="product-name">Krest Chicken Sausages 250G</div>
+  <div class="price">Rs 650.00</div>
+  <button class="add-to-cart" onclick="addToCart('Krest Chicken Sausages 250G', 'images/meat images/10.jpg', 650.00)">🛒 Add to Cart</button>
+</div>
+        <div class="product">
+    <img src="images/meat images/11.jpg" alt="Coconut">
+    <div class="product-name">Prima Chicken Sausages 500G</div>
+    <div class="price">Rs 1150.00</div>
+    <button class="add-to-cart" onclick="addToCart('Prima Chicken Sausages 500G', 'images/meat images/11.jpg', 1150.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/12.jpg" alt="Coconut">
+    <div class="product-name">Cresent Chicken Burgurs 200G</div>
+    <div class="price">Rs 535.00</div>
+    <button class="add-to-cart" onclick="addToCart('Cresent Chicken Burgurs 200G', 'images/meat images/12.jpg', 535.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/13.jpg" alt="Coconut">
+    <div class="product-name">Goldi Boneless Mutton Cubes 250G</div>
+    <div class="price">Rs 2200.00</div>
+    <button class="add-to-cart" onclick="addToCart('Goldi Boneless Mutton Cubes 250G', 'images/meat images/13.jpg', 2200.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/14.jpg" alt="Coconut">
+    <div class="product-name">Goldi Hot & Spicy Chicken Meatballs 160G</div>
+    <div class="price">Rs 340.00</div>
+    <button class="add-to-cart" onclick="addToCart('Goldi Hot & Spicy Chicken Meatballs 160G', 'images/meat images/14.jpg', 340.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/15.jpg" alt="Coconut">
+    <div class="product-name">Crescent Chicken Sausages 250G</div>
+    <div class="price">Rs 680.00</div>
+    <button class="add-to-cart" onclick="addToCart('Crescent Chicken Sausages 250G', 'images/meat images/15.jpg', 680.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/16.jpg" alt="Coconut">
+    <div class="product-name">Prima Chciken Burger 250G</div>
+    <div class="price">Rs 915.00</div>
+    <button class="add-to-cart" onclick="addToCart('Prima Chciken Burger 250G', 'images/meat images/16.jpg', 915.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/17.jpg" alt="Coconut">
+    <div class="product-name">Crescent Beef Sausages 250G</div>
+    <div class="price">Rs 920.00</div>
+    <button class="add-to-cart" onclick="addToCart('Crescent Beef Sausages 250G', 'images/meat images/17.jpg', 920.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/18.jpg" alt="Coconut">
+    <div class="product-name">Prima Chicken Becon 150G</div>
+    <div class="price">Rs 655.00</div>
+    <button class="add-to-cart" onclick="addToCart('Prima Chicken Becon 150G', 'images/meat images/18.jpg', 655.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/19.jpg" alt="Coconut">
+    <div class="product-name">Gokdi Chicken Lings 500G</div>
+    <div class="price">Rs 1220.00</div>
+    <button class="add-to-cart" onclick="addToCart('Gokdi Chicken Lings 500G', 'images/meat images/19.jpg', 1220.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/20.jpg" alt="Coconut">
+    <div class="product-name">Elephant House Jalapeno Chicken Sausages 200G</div>
+    <div class="price">Rs 1160.00</div>
+    <button class="add-to-cart" onclick="addToCart('Elephant House Jalapeno Chicken Sausages 200G', 'images/meat images/20.jpg', 1160.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/21.jpg" alt="Coconut">
+    <div class="product-name">Crysbro Whole Chicken 1KG</div>
+    <div class="price">Rs 1340.00</div>
+    <button class="add-to-cart" onclick="addToCart('Crysbro Whole Chicken 1KG', 'images/meat images/21.jpg', 1340.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/22.jpg" alt="Coconut">
+    <div class="product-name">Besto Pre-Cut Skinless Whole Chicken 1KG</div>
+    <div class="price">Rs 2200.00</div>
+    <button class="add-to-cart" onclick="addToCart('Besto Pre-Cut Skinless Whole Chicken 1KG', 'images/meat images/22.jpg', 2200.00)">🛒 Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="images/meat images/23.jpg" alt="Coconut">
+    <div class="product-name">Prima Marinated Chicken Thigs 500G</div>
+    <div class="price">Rs 1555.00</div>
+    <button class="add-to-cart" onclick="addToCart('Prima Marinated Chicken Thigs 500G', 'images/meat images/23.jpg', 1555.00)">🛒 Add to Cart</button>
+</div>
+        
+   </div>
+  <script>
+             function addToCart(name, image, price) {
+             const product = { name, image, price, quantity: 1 };
+            let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+       // Check if product already exists
+       const existing = cart.find(item => item.name === name);
+          if (existing) {
+             existing.quantity += 1; // Increment quantity if exists
+          } else {
+             cart.push(product); // Add new product
+          }
+  
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          window.location.href = "addcart.html";
+       }
+   </script>
+   <div class="footer_space">
+
+   </div>
+   <footer class="footer">
+        
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000" 
+            width="450" 
+            height="250" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        <div>
+            <h3 style="color:beige">Purchasing Lanka</h3>
+            <p>Purchasing Lanka Pvt Ltd</p>
+            <p>No 214,Galle Road, Matara, Sri Lanka</p>
+            <h3>+94 46 4859 453</h3>
+            <p>(Daily operating hours 8.00 am to 8.00 pm)</p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Quick Links</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Shipping & Refund</a></p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">Contact Us</a></p>
+            
+        </div>
+         
+        
+    </footer>
+
+    <!-- 🔔 JS to auto-close the ad -->
+   <script>
+    // Initially hide the ad modal
+    document.getElementById('adModal').style.display = 'none';
+
+    // Show ad after 2 minutes (120000 milliseconds)
+    setTimeout(() => {
+        document.getElementById('adModal').style.display = 'flex';
+    }, 2 * 60 * 100); // 2 minutes
+
+    function closeAd() {
+      document.getElementById('adModal').style.display = 'none';
+    }
+
+    // Slider Logic
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    }
+  </script>
+    <div class="bottom-bar">
+        <p>Copyright © 2025 Purchasing Lanka (Pvt) Ltd. All Rights Reserved</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PurchasingLanka.lk</title>
+    <link rel="icon" href="images/homepages images/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="items.css">
+    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+       
+</head>
+<body>
+    <div class="top-bar">
+        Get Upto 25% Cashback On First Order: GET25OFF - <a href="#" style="color: white; text-decoration: underline;">SHOP NOW</a>
+    </div>
+     <header class="header">
+        <div class="logo"><i class="fas fa-shopping-basket"></i> PurchasingLanka.LK</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="login-links">
+            <a href="addcart.html" style="color:white">🛒 Cart</a>
+
+            <a href="login.php" style="color:white">Login</a>
+            <a href="signup.php" style="color: white;">Sign Up</a>
+        </div>
+    </header>
+    
+    <div class="nav-links">
+        <div class="shop-category">
+            <button class="shop-btn">Shop By Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+               <a href="vegetable.html">Vegetables</a>
+               <a href="fruits.html">Fruits</a>
+               <a href="dairy.html">Dairy</a>
+               <a href="beverages.html">Beverages</a>
+               <a href="meat.html">Meats</a>
+               <a href="seefood.html">Sea Food</a>
+               <a href="Backery.html">Bakery</a>
+               
+         <!-- Grocery with subcategories -->
+            <div class="dropdown-item">
+               <a href="#">Grocery <i class="fas fa-chevron-right"></i></a>
+                  <div class="sub-dropdown">
+                      <a href="Biscuits.html">Biscuits</a>
+                      <a href="snacks.html">Snacks</a>
+                      <a href="rice.html">Rice</a>
+                      <a href="cooking.html">Cooking Items</a>
+                      <a href="noodles.html">Noodles & Pasta</a>
+                      <a href="oils.html">Oils</a>
+
+                  </div>
+         </div>
+
+               <a href="beauty.html">Health & Beauty</a>
+</div>
+
+        </div>
+        <a href="homepage.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Collections</a>
+        <a href="beverages.html">Beverages</a>
+        <a href="contact_us.html">Contact</a>
+        <a href="about_us.html">About Us</a>
+    </div>
+    
+    
+    </div>
+
+    <img src="images/homepages images/beautyback.png" style="width:1513px; height: 500px;">
+
+    <div class="section-title">
+        <hr>
+              <span>Health & <strong>Beauty</strong></span>
+        <hr>
+    </div>
+
+    <div class="container">
+        <div class="product">
+            <img src="images\beauty_images\1.jpg" alt="Big Onions">
+            <div class="product-name">Bellose 5Min Hair Color Men 20ml</div>
+            <div class="price">Rs 290.00</div>
+            <button class="add-to-cart" onclick="addToCart('Bellose 5Min Hair Color Men 20ml', 'images/beauty_images/1.jpg', 290.00)">🛒 Add to Cart</button>
+        </div>
+    
+        <div class="product">
+            <img src="images\beauty_images\2.jpg" alt="Coconut">
+            <div class="product-name">Bellose 5Min Hair Color Women 30ml</div>
+            <div class="price">Rs 390.00</div>
+            <button class="add-to-cart" onclick="addToCart('Bellose 5Min Hair Color Women 30ml', 'images/beauty_images/2.jpg', 390.00)">🛒 Add to Cart</button>
+        </div>
+    
+        <div class="product">
+            <img src="images\beauty_images\3.jpg" alt="Coconut">
+            <div class="product-name">Abha Hair Color 20ml</div>
+            <div class="price">Rs 340.00</div>
+            <button class="add-to-cart" onclick="addToCart('Abha Hair Color 20ml', 'images/beauty_images/3.jpg', 340.00)">🛒 Add to Cart</button>
+        </div>
+    
+        <div class="product">
+            <img src="images\beauty_images\4.jpg" alt="Coconut">
+            <div class="product-name">Godrej Hair Color Shampoo 21ml</div>
+            <div class="price">Rs 200.00</div>
+            <button class="add-to-cart" onclick="addToCart('Godrej Hair Color Shampoo 21ml', 'images/beauty_images/4.jpg', 200.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\5.jpg" alt="Coconut">
+            <div class="product-name">Sunsilk Conditioner 180ml</div>
+            <div class="price">Rs 750.00</div>
+            <button class="add-to-cart" onclick="addToCart('Sunsilk Conditioner 180ml', 'images/beauty_images/5.jpg', 750.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\6.jpg" alt="Coconut">
+            <div class="product-name">Sunsilk Conditioner Stunning Black Shine 180ml</div>
+            <div class="price">Rs 680.00</div>
+            <button class="add-to-cart" onclick="addToCart('Sunsilk Conditioner Stunning Black Shine 180ml', 'images/beauty_images/6.jpg', 680.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\7.jpg" alt="Coconut">
+            <div class="product-name">Dove Conditioner Oxygen Moisture 180ml</div>
+            <div class="price">Rs 830.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dove Conditioner Oxygen Moisture 180ml', 'images/beauty_images/7.jpg',  830.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\8.jpg" alt="Coconut">
+            <div class="product-name">Dove Shampoo Intense Repair 80ml</div>
+            <div class="price">Rs 500.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dove Shampoo Intense Repair 80ml', 'images/beauty_images/8.jpg', 500.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\9.jpg" alt="Coconut">
+            <div class="product-name">Dove Shampoo Hair Fall Rescue 80ml</div>
+            <div class="price">Rs 500.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dove Shampoo Hair Fall Rescue 80ml', 'images/beauty_images/9.jpg', 500.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\10.jpg" alt="Coconut">
+            <div class="product-name">Dreamron Silicon Hair Treatment 100ml</div>
+            <div class="price">Rs 1250.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dreamron Silicon Hair Treatment 100ml', 'images/beauty_images/10.jpg', 1250.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\11.jpg" alt="Coconut">
+            <div class="product-name">Bellose Silicon Hair oil 50ml</div>
+            <div class="price">Rs 690.00</div>
+            <button class="add-to-cart" onclick="addToCart('Bellose Silicon Hair oil 50ml', 'images/beauty_images/11.jpg', 690.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\12.jpg".jpg alt="Coconut">
+            <div class="product-name">Reebonn Silicon Conditioner 50ml</div>
+            <div class="price">Rs 2400.00</div>
+            <button class="add-to-cart" onclick="addToCart('Reebonn Silicon Conditioner 50ml', 'images/beauty_images/12.jpg', 2400.00)">🛒 Add to Cart</button>
+        </div>
+        
+        <div class="product">
+            <img src="images\beauty_images\13.jpg".jpg alt="Coconut">
+            <div class="product-name">Clear Men Shampoo Cool Sport Menthol l80ml</div>
+            <div class="price">Rs 490.00</div>
+            <button class="add-to-cart" onclick="addToCart('Clear Men Shampoo Cool Sport Menthol l80ml', 'images/beauty_images/13.jpg', 490.00)">🛒 Add to Cart</button>
+        </div>
+    
+        <div class="product">
+            <img src="images\beauty_images\14.jpg".jpg alt="Coconut">
+            <div class="product-name"> Clear Shampoo Ice Cool 180ml</div>
+            <div class="price">Rs 725.00</div>
+            <button class="add-to-cart" onclick="addToCart('Clear Shampoo Ice Cool 180ml', 'images/beauty_images/14.jpg', 725.00)">🛒 Add to Cart</button>
+        </div>
+
+        
+        <div class="product">
+            <img src="images\beauty_images\16.jpg" alt="Coconut">
+            <div class="product-name">Black Knight Hair Styling Cream Original 100ml</div>
+            <div class="price">Rs 420.00</div>
+            <button class="add-to-cart" onclick="addToCart('Black Knight Hair Styling Cream Original 100ml', 'images/beauty_images/16.jpg', 420.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\17.jpg" alt="Coconut">
+            <div class="product-name">Black Knight Hair Gel Original 100ml</div>
+            <div class="price">Rs 420.00</div>
+            <button class="add-to-cart" onclick="addToCart('Black Knight Hair Gel Original 100ml', 'images/beauty_images/17.jpg', 420.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\18.jpg" alt="Coconut">
+            <div class="product-name">Gold Hair Gel 100ml</div>
+            <div class="price">Rs 350.00</div>
+            <button class="add-to-cart" onclick="addToCart('Gold Hair Gel 100ml', 'images/beauty_images/18.jpg', 350.00)">🛒 Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\beauty_images\19.jpg".jpg alt="Coconut">
+            <div class="product-name">Dendex Shampoo Anti Dandruff Hair Fall 175ml</div>
+            <div class="price">Rs 560.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dendex Shampoo Anti Dandruff Hair Fall 175ml', 'images/beauty_images/19.jpg', 560.00)">🛒 Add to Cart</button>
+        </div>
+        
+        <div class="product">
+            <img src="images\beauty_images\20.jpg".jpg alt="Coconut">
+            <div class="product-name">Kumarika Hair Oil Thick Volume shine 100ml</div>
+            <div class="price">Rs 315.00</div>
+            <button class="add-to-cart" onclick="addToCart('Kumarika Hair Oil Thick Volume shine 100ml', 'images/beauty_images/20.jpg', 315.00)">🛒 Add to Cart</button>
+        </div>
+    
+        <div class="product">
+            <img src="images\beauty_images\21.jpg".jpg alt="Coconut">
+            <div class="product-name"> Pears Bedtime Baby Soap 100g</div>
+            <div class="price">Rs 190.00</div>
+            <button class="add-to-cart" onclick="addToCart(' Pears Bedtime Baby Soap 100g', 'images/beauty_images/21.jpg', 190.00)">🛒 Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\beauty_images\22.jpg".jpg alt="Coconut">
+            <div class="product-name"> Dove Shampoo Refile Pack 150ml</div>
+            <div class="price">Rs 450.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dove Shampoo Refile Pack 150ml', 'images/beauty_images/22.jpg', 450.00)">🛒 Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\beauty_images\23.jpg".jpg alt="Coconut">
+            <div class="product-name"> Calin Soap Rose Beauty 80g</div>
+            <div class="price">Rs 125.00</div>
+            <button class="add-to-cart" onclick="addToCart('Calin Soap Rose Beauty 80g', 'images/beauty_images/23.jpg', 125.00)">🛒 Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\beauty_images\24.jpg".jpg alt="Coconut">
+            <div class="product-name"> Calin Soap White Beauty 80g</div>
+            <div class="price">Rs 125.00</div>
+            <button class="add-to-cart" onclick="addToCart('Calin Soap White Beauty 80g', 'images/beauty_images/24.jpg', 125.00)">🛒 Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\beauty_images\25.jpg".jpg alt="Coconut">
+            <div class="product-name"> Champion Soap Cool Mint </div>
+            <div class="price">Rs 150.00</div>
+            <button class="add-to-cart" onclick="addToCart('Champion Soap Cool Mint', 'images/beauty_images/25.jpg', 150.00)">🛒 Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\beauty_images\26.jpg".jpg alt="Coconut">
+            <div class="product-name"> Chandanalepa Soap Ayurvedic Beauty 100g</div>
+            <div class="price">Rs 330.00</div>
+            <button class="add-to-cart" onclick="addToCart('Chandanalepa Soap Ayurvedic Beauty 100g', 'images/beauty_images/26.jpg', 330.00)">🛒 Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+            <img src="images\beauty_images\27.jpg".jpg alt="Coconut">
+            <div class="product-name"> Detol Liquid Soap Skincare 200ml</div>
+            <div class="price">Rs 580.00</div>
+            <button class="add-to-cart" onclick="addToCart('Detol Liquid Soap Skincare 200ml', 'images/beauty_images/27.jpg', 580.00)">🛒 Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+            <img src="images\beauty_images\28.jpg".jpg alt="Coconut">
+            <div class="product-name"> Dettol Soap Cool 100g</div>
+            <div class="price">Rs 185.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dettol Soap Cool 100g', 'images/beauty_images/28.jpg', 185.00)">🛒 Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+            <img src="images\beauty_images\29.jpg".jpg alt="Coconut">
+            <div class="product-name"> Dettol Soap Lasting Fresh 100g</div>
+            <div class="price">Rs 185.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dettol Soap Lasting Fresh 100g', 'images/beauty_images/29.jpg', 185.00)">🛒 Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+            <img src="images\beauty_images\30.jpg".jpg alt="Coconut">
+            <div class="product-name"> Dettol Soap Orange Burst 100g</div>
+            <div class="price">Rs 185.00</div>
+            <button class="add-to-cart" onclick="addToCart(' Dettol Soap Orange Burst 100g', 'images/beauty_images/30.jpg', 185.00)">🛒 Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+            <img src="images\beauty_images\31.jpg".jpg alt="Coconut">
+            <div class="product-name"> Dove Soap Beauty Cream 100g</div>
+            <div class="price">Rs 360.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dove Soap Beauty Cream 100g', 'images/beauty_images/31.jpg', 360.00)">🛒 Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+            <img src="images\beauty_images\32.jpg".jpg alt="Coconut">
+            <div class="product-name"> Dove Soap Pink 100g</div>
+            <div class="price">Rs 360.00</div>
+            <button class="add-to-cart" onclick="addToCart('Dove Soap Pink 100g', 'images/beauty_images/32.jpg', 360.00)">🛒 Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+            <img src="images\beauty_images\33.jpg".jpg alt="Coconut">
+            <div class="product-name"> Khomba Baby Soap Avacado 90g</div>
+            <div class="price">Rs 185.00</div>
+            <button class="add-to-cart" onclick="addToCart('Khomba Baby Soap Avacado 90g', 'images/beauty_images/33.jpg', 185.00)">🛒 Add to Cart</button>
+        </div>
+
+         <div class="product">
+            <img src="images\beauty_images\34.jpg".jpg alt="Coconut">
+            <div class="product-name"> Khomba Baby Soap Floral 90g</div>
+            <div class="price">Rs 185.00</div>
+            <button class="add-to-cart" onclick="addToCart(' Khomba Baby Soap Floral 90g', 'images/beauty_images/34.jpg', 185.00)">🛒 Add to Cart</button>
+        </div>
+
+         <div class="product">
+            <img src="images\beauty_images\35.jpg".jpg alt="Coconut">
+            <div class="product-name"> Lux Soap Bright Glow 100g</div>
+            <div class="price">Rs 170.00</div>
+            <button class="add-to-cart" onclick="addToCart('Lux Soap Bright Glow 100g', 'images/beauty_images/35.jpg', 170.00)">🛒 Add to Cart</button>
+        </div>
+
+
+         <div class="product">
+            <img src="images\beauty_images\36.jpg".jpg alt="Coconut">
+            <div class="product-name"> Lux Soap Fresh Splash 100g</div>
+            <div class="price">Rs 165.00</div>
+            <button class="add-to-cart" onclick="addToCart('Lux Soap Fresh Splash 100g', 'images/beauty_images/36.jpg',165.00)">🛒 Add to Cart</button>
+        </div>
+
+
+         <div class="product">
+            <img src="images\beauty_images\37.jpg".jpg alt="Coconut">
+            <div class="product-name"> Sunlight Soap Yellow 115g</div>
+            <div class="price">Rs 150.00</div>
+            <button class="add-to-cart" onclick="addToCart('Sunlight Soap Yellow 115g', 'images/beauty_images/37.jpg', 150.00)">🛒 Add to Cart</button>
+        </div>
+
+
+         <div class="product">
+            <img src="images\beauty_images\38.jpg".jpg alt="Coconut">
+            <div class="product-name"> Velvat Soap Orange & Honey 95g</div>
+            <div class="price">Rs 165.00</div>
+            <button class="add-to-cart" onclick="addToCart(' Velvat Soap Orange & Honey 95g', 'images/beauty_images/38.jpg', 165.00)">🛒 Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\beauty_images\39.jpg".jpg alt="Coconut">
+            <div class="product-name"> Rani Soap 65g</div>
+            <div class="price">Rs 130.00</div>
+            <button class="add-to-cart" onclick="addToCart('Rani Soap 65g', 'images/beauty_images/39.jpg', 130.00)">🛒 Add to Cart</button>
+        </div>
+
+    
+
+   </div>
+   <!-- JavaScript to store product and redirect -->
+  <script>
+     function addToCart(name, image, price) {
+       const product = { name, image, price, quantity: 1 };
+       let cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+       // Check if product already exists
+       const existing = cart.find(item => item.name === name);
+          if (existing) {
+             existing.quantity += 1; // Increment quantity if exists
+          } else {
+             cart.push(product); // Add new product
+          }
+  
+          localStorage.setItem("cartProducts", JSON.stringify(cart));
+          window.location.href = "addcart.html";
+       }
+   </script>
+   <div class="footer_space">
+
+   </div>
+   <footer class="footer">
+        
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63307.33014923329!2d80.5110856!3d5.9499538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138ffdbd0888d%3A0xf33b7ea061d229d6!2sMatara!5e0!3m2!1sen!2slk!4v1716000000000" 
+            width="450" 
+            height="250" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+        <div>
+            <h3 style="color:beige">Purchasing Lanka</h3>
+            <p>Purchasing Lanka Pvt Ltd</p>
+            <p>No 214,Galle Road, Matara, Sri Lanka</p>
+            <h3>+94 46 4859 453</h3>
+            <p>(Daily operating hours 8.00 am to 8.00 pm)</p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Quick Links</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">FAQs</a></p>
+            <p><a href="#">Shipping & Refund</a></p>
+        </div>
+        <div>
+            <h3 style="color:rgb(102, 182, 135)">Customer Services</h3>
+            <p><a href="about_us.html">About Us</a></p>
+            <p><a href="#">Contact Us</a></p>
+            
+        </div>
+         
+        
+    </footer>
+
+    <!-- 🔔 JS to auto-close the ad -->
+   <script>
+    // Initially hide the ad modal
+    document.getElementById('adModal').style.display = 'none';
+
+    // Show ad after 2 minutes (120000 milliseconds)
+    setTimeout(() => {
+        document.getElementById('adModal').style.display = 'flex';
+    }, 2 * 60 * 100); // 2 minutes
+
+    function closeAd() {
+      document.getElementById('adModal').style.display = 'none';
+    }
+
+    // Slider Logic
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    }
+  </script>
+    <div class="bottom-bar">
+        <p>Copyright © 2025 Purchasing Lanka (Pvt) Ltd. All Rights Reserved</p>
+    </div>
+</body>
+</html>
